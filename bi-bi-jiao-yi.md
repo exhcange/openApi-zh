@@ -4,44 +4,33 @@
 
 ### 安全类型: None
 
-####测试连接
-Request method : [GET](#fenced-code-block)
 
-URL : [https://openapi.xxx.com/sapi/v1/ping](#fenced-code-block)
+{% swagger method="get" path="/sapi/v1/ping" baseUrl="https://openapi.xxx.com" summary="测试连接" %}
+{% swagger-description %}
+ 测试REST API的连通性
+{% endswagger-description %}
 
-#####描述
-* 测试REST API的连通性
-
-#####Parameters
-* No parameters
-
-#####Responses
-`
-{
-   🟩200: OK
+{% swagger-response status="200: OK" description="" %}
+```javascript
 }
-`
-
-<br>
-####服务器时间
-Request method : [GET](#fenced-code-block)
-
-URL : [https://openapi.xxx.com/sapi/v1/time](#fenced-code-block)
-
-#####描述
-* 获取服务器时间
-
-#####Parameters
-* No parameters
-
-#####Responses
-🟩200: OK
 ```
+{% endswagger-response %}
+{% endswagger %}
+
+{% swagger method="get" path="/sapi/v1/time" baseUrl="https://openapi.xxx.com" summary="服务器时间" %}
+{% swagger-description %}
+获取服务器时间
+{% endswagger-description %}
+
+{% swagger-response status="200: OK" description="" %}
+```javascript
 {
     "timezone": "GMT+08:00",
     "serverTime": 1595563624731
 }
 ```
+{% endswagger-response %}
+{% endswagger %}
 
 {% swagger method="get" path="/sapi/v1/symbols" baseUrl="https://openapi.xxx.com" summary="币对列表 " %}
 {% swagger-description %}
