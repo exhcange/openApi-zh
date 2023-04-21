@@ -54,7 +54,7 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="newClientOrderId" %}
-客户端订单标识
+客户端订单标识,不能超过32位
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="recwwindow" %}
@@ -81,7 +81,7 @@
 
 **权重(IP/UID): 5**
 
-****
+
 
 {% swagger method="get" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.com" summary=" 杠杆订单查询" %}
 {% swagger-description %}
@@ -137,7 +137,7 @@ Header
 
 **权重(IP/UID): 5**
 
-****
+
 
 {% swagger method="post" path="/sapi/v1/margin/cancel" baseUrl="https://openapi.xxx.com" summary=" 撤销杠杆订单" %}
 {% swagger-description %}
@@ -190,13 +190,13 @@ Header
 
 **权重(IP/UID): 5**
 
-****
+
 
 {% swagger method="get" path="/sapi/v1/margin/openOrders" baseUrl="https://openapi.xxx.com" summary=" 杠杆当前委托" %}
 {% swagger-description %}
 **权重(IP/UID): 5**
 
-****
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" %}
@@ -245,7 +245,7 @@ Header
 
 **权重(IP/UID): 1**
 
-****
+
 
 {% swagger method="get" path="/sapi/v1/margin/myTrades" baseUrl="https://openapi.xxx.com" summary=" 杠杆交易记录" %}
 {% swagger-description %}
