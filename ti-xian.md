@@ -56,6 +56,8 @@
 {% endswagger-response %}
 {% endswagger %}
 
+**权重(IP/UID): 100**
+
 {% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.com" summary="提现记录查询" %}
 {% swagger-description %}
 
@@ -141,6 +143,8 @@
 ```
 {% endswagger-response %}
 {% endswagger %}
+
+**权重(IP/UID): 100**
 
 #### Responses
 
