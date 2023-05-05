@@ -4,10 +4,9 @@
 
 ### 安全类型: None
 
-
 {% swagger method="get" path="/sapi/v1/ping" baseUrl="https://openapi.xxx.com" summary="测试连接" %}
 {% swagger-description %}
- 测试REST API的连通性
+测试REST API的连通性
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -36,8 +35,7 @@
 {% swagger-description %}
 市场支持的币对集合esponse:
 
-名称类型例子描述timelong`1595563624731`当前时间(Unix Timestamp, 毫秒ms)bidslist如下订单薄买盘信息askslist如下订单薄卖盘信息bids和asks所对应的信息代表了订单薄的所有价格以及价格对应的数量的信息, 由最优价格从上倒下排列名称类型例子描述' 'float`131.1`价格' 'float`2.3`当前价格对应的数量GEThttps://openapi.xxx.com/sapi/v1/ticker\
-
+名称类型例子描述timelong`1595563624731`当前时间(Unix Timestamp, 毫秒ms)bidslist如下订单薄买盘信息askslist如下订单薄卖盘信息bids和asks所对应的信息代表了订单薄的所有价格以及价格对应的数量的信息, 由最优价格从上倒下排列名称类型例子描述' 'float`131.1`价格' 'float`2.3`当前价格对应的数量GEThttps://openapi.xxx.com/sapi/v1/ticker\\
 {% endswagger-description %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -157,17 +155,13 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | --- | ----- | ------- | --------- |
 | ' ' | float | `2.3`   | 当前价格对应的数量 |
 
-
-
-
-
 {% swagger method="get" path="/sapi/v1/ticker" baseUrl="https://openapi.xxx.com" summary=" 行情ticker" %}
 {% swagger-description %}
 24小时价格变化数据
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 
@@ -200,22 +194,18 @@ Responses200
 | last | float | `8900`          | 最新价 |   |
 | vol  | float | `4999`          | 交易量 |   |
 
-
-
-
-
 {% swagger method="get" path="/sapi/v1/trades" baseUrl="https://openapi.xxx.com" summary="最近成交" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" %}
+{% swagger-parameter in="query" name="limit" required="false" %}
 `默认100:最大1000`
 {% endswagger-parameter %}
 
@@ -245,23 +235,19 @@ Responses200
 | qty   | float  | `5`             | 数量（张数）           |   |
 | side  | string | `BUY/SELL`      | 主动单方向            |   |
 
-
-
-
-
 {% swagger method="get" path="/sapi/v1/klines" baseUrl="https://openapi.xxx.com" summary="K线/蜡烛图数据" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="symbol" type="" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="interval" required="true" %}
-k线图区间, 可识别发送的值为： 
+k线图区间, 可识别发送的值为：
 
 `1min`
 
@@ -351,20 +337,20 @@ k线图区间, 可识别发送的值为：
 限速规则: 100次/2s
 {% endswagger-description %}
 
-{% swagger-parameter in="query" name="X-CH-SIGN" type="string" %}
+{% swagger-parameter in="query" name="X-CH-SIGN" type="string" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="X-CH-APIKEY" type="string" %}
+{% swagger-parameter in="query" name="X-CH-APIKEY" type="string" required="false" %}
 您的API-Key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="X-CH-TS" type="integer" %}
+{% swagger-parameter in="query" name="X-CH-TS" type="integer" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
@@ -374,13 +360,13 @@ k线图区间, 可识别发送的值为：
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" required="true" %}
-订单方向, 
+订单方向,
 
 `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" required="true" %}
-订单类型, 
+订单类型,
 
 `LIMIT/MARKET`
 {% endswagger-parameter %}
@@ -393,19 +379,18 @@ k线图区间, 可识别发送的值为：
 订单必须发送
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="newClientOrderId" %}
+{% swagger-parameter in="body" name="newClientOrderId" required="false" %}
 客户端订单标识
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="recvwindow" type="integer" %}
+{% swagger-parameter in="body" name="recvwindow" type="integer" required="false" %}
 时间窗口
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
-```javascript
-{
+<pre class="language-javascript"><code class="lang-javascript">{
     'symbol': 'LXTUSDT', 
-    'orderId': '150695552109032492', 
+    'orderId': '150695552109032492', //Long类型的订单号
     'clientOrderId': '157371322565051',
     'transactTime': '1573713225668', 
     'price': '0.005452', 
@@ -413,9 +398,11 @@ k线图区间, 可识别发送的值为：
     'executedQty': '0', 
     'status': 'NEW',
     'type': 'LIMIT', 
-    'side': 'SELL'
+    'side': 'SELL',
+<strong>    "orderIdString": "1642655717519015937" //字符串类型的订单号,推荐使用这个
+</strong>
 }
-```
+</code></pre>
 {% endswagger-response %}
 {% endswagger %}
 
@@ -423,41 +410,42 @@ k线图区间, 可识别发送的值为：
 
 #### Response:
 
-| orderId       | long    | `150695552109032492` | 订单ID（系统生成）                                                                                                 |   |
-| ------------- | ------- | -------------------- | ---------------------------------------------------------------------------------------------------------- | - |
-| clientorderId | string  | `213443`             | 订单ID（自己发送的）                                                                                                |   |
-| symbol        | string  | `BTCUSDT`            | 币对名称                                                                                                       |   |
-| transactTime  | integer | `1273774892913`      | 订单创建时间                                                                                                     |   |
-| price         | float   | `4765.29`            | 订单价格                                                                                                       |   |
-| origQty       | float   | `1.01`               | 订单数量                                                                                                       |   |
-| executedQty   | float   | `1.01`               | 已经成交订单数量                                                                                                   |   |
-| type          | string  | `LIMIT`              | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
-| side          | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
-| status        | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
+| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                                                                                 |   |
+| ------------- | ------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | - |
+| orderIdString | string  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                                                           |   |
+| clientorderId | string  | `213443`               | 订单ID（自己发送的）                                                                                                |   |
+| symbol        | string  | `BTCUSDT`              | 币对名称                                                                                                       |   |
+| transactTime  | integer | `1273774892913`        | 订单创建时间                                                                                                     |   |
+| price         | float   | `4765.29`              | 订单价格                                                                                                       |   |
+| origQty       | float   | `1.01`                 | 订单数量                                                                                                       |   |
+| executedQty   | float   | `1.01`                 | 已经成交订单数量                                                                                                   |   |
+| type          | string  | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
+| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
+| status        | string  | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
 {% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.com" summary=" 创建测试订单" %}
 {% swagger-description %}
 创建和验证新订单, 但不会送入撮合引擎
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="recvwindow" type="integer" %}
+{% swagger-parameter in="body" name="recvwindow" type="integer" required="false" %}
 时间窗口
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
@@ -467,13 +455,13 @@ k线图区间, 可识别发送的值为：
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" required="true" %}
-订单方向, 
+订单方向,
 
 `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" required="true" %}
-订单类型, 
+订单类型,
 
 `LIMIT/MARKET`
 {% endswagger-parameter %}
@@ -486,7 +474,7 @@ k线图区间, 可识别发送的值为：
 订单必须发送
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="newClientorderId" %}
+{% swagger-parameter in="body" name="newClientorderId" required="false" %}
 客户端订单标识
 {% endswagger-parameter %}
 
@@ -501,40 +489,45 @@ k线图区间, 可识别发送的值为：
 
 **权重(IP/UID): 1**
 
-****
+***
 
-****
+***
 
 {% swagger method="post" path="/sapi/v1/batchOrders" baseUrl="https://openapi.xxx.com" summary=" 批量下单" %}
 {% swagger-description %}
 一次批量最多下10个订单
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="orders" type="number" %}
+{% swagger-parameter in="body" name="orders" type="number" required="false" %}
 批量订单信息 最多10条
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
 ```javascript
 {
+    "idsString": [ //字符串类型的订单id(推荐使用)
+        "165964665990709251",
+        "165964665990709252",
+        "165964665990709253"
+    ],
     "ids": [
         165964665990709251,
         165964665990709252,
@@ -555,24 +548,20 @@ k线图区间, 可识别发送的值为：
 | side      | string | `BUY/SELL`     | 方向 |   |
 | batchType | string | `LIMIT/MARKET` | 类型 |   |
 
-
-
-
-
 {% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 订单查询" %}
 {% swagger-description %}
 限速规则: 20次/2s
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
@@ -580,12 +569,12 @@ k线图区间, 可识别发送的值为：
 订单id
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="newClientorderId" %}
+{% swagger-parameter in="query" name="newClientorderId" required="false" %}
 客户端订单标识
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 
@@ -627,26 +616,22 @@ Header
 | side          | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
 | status        | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
-
-
-
-
 {% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.com" summary="撤销订单" %}
 {% swagger-description %}
-限速规则: 
+限速规则:
 
 **100次/2s**
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
@@ -654,12 +639,12 @@ Header
 订单id
 {% endswagger-parameter %}
 
-{% swagger-parameter in="body" name="newClientOrderId" type="String" %}
+{% swagger-parameter in="body" name="newClientOrderId" type="String" required="false" %}
 客户端订单标识
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 
@@ -689,29 +674,25 @@ Responses200
 | symbol        | string | `BTCUSDT`            | 币对名称                                                                                                       |   |
 | status        | string | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
-
-
-
-
 {% swagger method="post" path="/sapi/v1/batchCancel" baseUrl="https://openapi.xxx.com" summary="批量撤销订单" %}
 {% swagger-description %}
 **一次批量最多10个订单**
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="orderIds" required="true" %}
-要取消的订单id集合 
+要取消的订单id集合
 
 `[123,456]`
 
@@ -719,7 +700,7 @@ Responses200GET
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 
@@ -744,36 +725,36 @@ Responses200
 
 **权重(IP/UID): 10**
 
-****
+***
 
-****
+***
 
 {% swagger method="get" path="/sapi/v1/openOrders" baseUrl="https://openapi.xxx.com" summary=" 当前订单" %}
 {% swagger-description %}
-限速规则: 
+限速规则:
 
 **20次/2s**
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" %}
+{% swagger-parameter in="query" name="limit" required="false" %}
 默认100; 最大1000
 {% endswagger-parameter %}
 
@@ -801,52 +782,49 @@ Responses200
 
 **Response:**
 
-| orderId       | long   | `150695552109032492` | 订单ID（系统生成）                                                                                                 |   |
-| ------------- | ------ | -------------------- | ---------------------------------------------------------------------------------------------------------- | - |
-| clientorderId | string | `213443`             | 订单ID（自己发送的）                                                                                                |   |
-| symbol        | string | `BTCUSDT`            | 币对名称                                                                                                       |   |
-| price         | float  | `4765.29`            | 订单价格                                                                                                       |   |
-| origQty       | float  | `1.01`               | 订单数量                                                                                                       |   |
-| executedQty   | float  | `1.01`               | 已经成交订单数量                                                                                                   |   |
-| avgPrice      | float  | `4754.24`            | 订单已经成交的平均价格                                                                                                |   |
-| type          | string | `LIMIT`              | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
-| side          | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
-| status        | string | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
-
-
-
-
+| orderId       | long   | `150695552109032492`   | 订单ID（系统生成）                                                                                                 |   |
+| ------------- | ------ | ---------------------- | ---------------------------------------------------------------------------------------------------------- | - |
+| orderIdString | String | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                                                           |   |
+| clientorderId | string | `213443`               | 订单ID（自己发送的）                                                                                                |   |
+| symbol        | string | `BTCUSDT`              | 币对名称                                                                                                       |   |
+| price         | float  | `4765.29`              | 订单价格                                                                                                       |   |
+| origQty       | float  | `1.01`                 | 订单数量                                                                                                       |   |
+| executedQty   | float  | `1.01`                 | 已经成交订单数量                                                                                                   |   |
+| avgPrice      | float  | `4754.24`              | 订单已经成交的平均价格                                                                                                |   |
+| type          | string | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
+| side          | string | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
+| status        | string | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
 {% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.com" summary=" 交易记录" %}
 {% swagger-description %}
-限速规则: 
+限速规则:
 
 **20次/2s**
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" required="true" %}
-币对名称 E.g. 
+币对名称 E.g.
 
 `BTCUSDT`
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="limit" %}
+{% swagger-parameter in="query" name="limit" required="false" %}
 默认100; 最大1000
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="fromId" %}
+{% swagger-parameter in="query" name="fromId" required="false" %}
 从这个tradeId开始检索
 {% endswagger-parameter %}
 
@@ -879,20 +857,20 @@ Responses200
 
 {% swagger method="get" path="/sapi/v1/account" baseUrl="https://openapi.xxx.com" summary="账户信息" %}
 {% swagger-description %}
-限速规则: 
+限速规则:
 
 **20次/2s**
 {% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
+{% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
 签名
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
+{% swagger-parameter in="header" name="X-CH-APIKEY" required="false" %}
 您的API-key
 {% endswagger-parameter %}
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
+{% swagger-parameter in="header" name="X-CH-TS" required="false" %}
 时间戳
 {% endswagger-parameter %}
 
