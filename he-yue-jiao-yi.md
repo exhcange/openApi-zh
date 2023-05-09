@@ -474,9 +474,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 {% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/cancel" method="post" summary=" 取消订单" %}
 {% swagger-description %}
- 
 
-**限速规则: 20次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
@@ -758,9 +756,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 {% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/myTrades" method="get" summary=" 交易记录" %}
 {% swagger-description %}
- 
 
-**限速规则: 20次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
@@ -835,9 +831,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 {% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/account" method="get" summary=" 账户信息" %}
 {% swagger-description %}
- 
 
-**限速规则: 20次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}

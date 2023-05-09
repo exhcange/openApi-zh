@@ -334,7 +334,7 @@ k线图区间, 可识别发送的值为：
 
 {% swagger method="post" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 创建新订单" %}
 {% swagger-description %}
-限速规则: 100次/2s
+
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="X-CH-SIGN" type="string" required="false" %}
@@ -495,7 +495,7 @@ k线图区间, 可识别发送的值为：
 
 {% swagger method="post" path="/sapi/v1/batchOrders" baseUrl="https://openapi.xxx.com" summary=" 批量下单" %}
 {% swagger-description %}
-一次批量最多下10个订单
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
@@ -550,7 +550,7 @@ k线图区间, 可识别发送的值为：
 
 {% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 订单查询" %}
 {% swagger-description %}
-限速规则: 20次/2s
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
@@ -618,9 +618,7 @@ Header
 
 {% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.com" summary="撤销订单" %}
 {% swagger-description %}
-限速规则:
 
-**100次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
@@ -731,9 +729,7 @@ Responses200
 
 {% swagger method="get" path="/sapi/v1/openOrders" baseUrl="https://openapi.xxx.com" summary=" 当前订单" %}
 {% swagger-description %}
-限速规则:
 
-**20次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
@@ -797,9 +793,9 @@ Responses200
 
 {% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.com" summary=" 交易记录" %}
 {% swagger-description %}
-限速规则:
 
-**20次/2s**
+
+
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
@@ -857,9 +853,7 @@ Responses200
 
 {% swagger method="get" path="/sapi/v1/account" baseUrl="https://openapi.xxx.com" summary="账户信息" %}
 {% swagger-description %}
-限速规则:
 
-**20次/2s**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" required="false" %}
