@@ -615,6 +615,7 @@ Header
 | avgPrice      | float   | `4754.24`            | 订单已经成交的平均价格                                                                                                |   |
 | side          | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
 | status        | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
+| transactTime  | string  | 1574327555669        | 订单创建时间                                                                                                     |   |
 
 {% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.com" summary="撤销订单" %}
 {% swagger-description %}
@@ -790,6 +791,7 @@ Responses200
 | type          | string | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
 | side          | string | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
 | status        | string | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
+| time          | string | 1574327555669          | 创建时间                                                                                                       |   |
 
 {% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.com" summary=" 交易记录" %}
 {% swagger-description %}
