@@ -193,6 +193,7 @@ Responses200
 | open | float | `8700`          | 开盘价 |   |
 | last | float | `8900`          | 最新价 |   |
 | vol  | float | `4999`          | 交易量 |   |
+| rose | float | 0               | 涨幅  |   |
 
 {% swagger method="get" path="/sapi/v1/trades" baseUrl="https://openapi.xxx.com" summary="最近成交" %}
 {% swagger-description %}
