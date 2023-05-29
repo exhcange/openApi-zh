@@ -857,11 +857,12 @@ Responses200
 | --------- | ------- | -------------------- | ---------------------------------------------------------------------------------------------------------- | -- |
 | symbol    | String  | 币对                   | 字符串类型的订单ID(推荐使用)                                                                                           | ti |
 | time      | long    | 1499865549590        | 创建时间                                                                                                       |    |
-| qty       | string  | `12`                 | 成交量                                                                                                        |    |
+| qty       | string  | `12`                 | 交易数量                                                                                                       |    |
 | price     | float   | `4765.29`            | 订单价格                                                                                                       |    |
-| fee       | string  | `0.001`              | 手续费                                                                                                        |    |
+| fee       | string  | `0.001`              | 交易手续费币                                                                                                     |    |
 | feeCoin   | String  | `xxx`                | 手续费币种                                                                                                      |    |
-| isBuyer   | boolean | `true`               | 买卖方向:true是买,false是卖                                                                                        |    |
+| isBuyer   | boolean | `true`               | `true`= 买 `false`= 卖                                                                                       |    |
+| isMaker   | boolean | false                | `true`=市价 `false`=限价                                                                                       |    |
 | bidId     | long    | `1200000200`         | 买单id                                                                                                       |    |
 | askId     | long    | `1200000200`         | 卖单id                                                                                                       |    |
 | side      | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |    |
