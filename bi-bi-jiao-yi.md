@@ -854,23 +854,21 @@ Responses200
 
 #### Response:
 
-| id        | long    | `150695552109032492` | 成交id                                                                                                       |    |
-| --------- | ------- | -------------------- | ---------------------------------------------------------------------------------------------------------- | -- |
-| symbol    | String  | 币对                   | 字符串类型的订单ID(推荐使用)                                                                                           | ti |
-| time      | long    | 1499865549590        | 创建时间                                                                                                       |    |
-| qty       | string  | `12`                 | 交易数量                                                                                                       |    |
-| price     | float   | `4765.29`            | 订单价格                                                                                                       |    |
-| fee       | string  | `0.001`              | 交易手续费币                                                                                                     |    |
-| feeCoin   | String  | `xxx`                | 手续费币种                                                                                                      |    |
-| isBuyer   | boolean | `true`               | `true`= 买 `false`= 卖                                                                                       |    |
-| isMaker   | boolean | false                | `true`=市价 `false`=限价                                                                                       |    |
-| bidId     | long    | `1200000200`         | 买单id                                                                                                       |    |
-| askId     | long    | `1200000200`         | 卖单id                                                                                                       |    |
-| side      | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |    |
-| status    | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |    |
-| time      | string  | 1574327555669        | 创建时间                                                                                                       |    |
-| bidUserId | long    | 23334                | 买方uid                                                                                                      |    |
-| askUserId | long    | 44112                | 卖方uid                                                                                                      |    |
+| id        | long    | `150695552109032492` | 成交id                                      |    |
+| --------- | ------- | -------------------- | ----------------------------------------- | -- |
+| symbol    | String  | 币对                   | 字符串类型的订单ID(推荐使用)                          | ti |
+| time      | long    | 1499865549590        | 创建时间                                      |    |
+| qty       | string  | `12`                 | 交易数量                                      |    |
+| price     | float   | `4765.29`            | 订单价格                                      |    |
+| fee       | string  | `0.001`              | 交易手续费币                                    |    |
+| feeCoin   | String  | `xxx`                | 手续费币种                                     |    |
+| isBuyer   | boolean | `true`               | `true`= 买 `false`= 卖                      |    |
+| isMaker   | boolean | false                | `true`=市价 `false`=限价                      |    |
+| bidId     | long    | `1200000200`         | 买单id                                      |    |
+| askId     | long    | `1200000200`         | 卖单id                                      |    |
+| side      | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空） |    |
+| bidUserId | long    | 23334                | 买方uid                                     |    |
+| askUserId | long    | 44112                | 卖方uid                                     |    |
 
 ## 账户
 
