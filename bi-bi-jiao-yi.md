@@ -541,13 +541,11 @@ k线图区间, 可识别发送的值为：
 
 **权重(IP/UID): 10**
 
-#### Resquest `orders` field: <a href="#resquest-orders-field" id="resquest-orders-field"></a>
+#### Resquest: <a href="#resquest-orders-field" id="resquest-orders-field"></a>
 
-| price     | long   | 1000           | 价格 |   |
-| --------- | ------ | -------------- | -- | - |
-| volume    | folat  | 20.1           | 数量 |   |
-| side      | string | `BUY/SELL`     | 方向 |   |
-| batchType | string | `LIMIT/MARKET` | 类型 |   |
+| idsString | String  | “3213213” | String类型的订单号集合 |   |
+| --------- | ------- | --------- | -------------- | - |
+| ids       | integer | 2100      | 订单号集合          |   |
 
 {% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 订单查询" %}
 {% swagger-description %}
