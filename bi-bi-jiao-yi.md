@@ -411,18 +411,18 @@ k线图区间, 可识别发送的值为：
 
 #### Response:
 
-| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                                                                                 |   |
-| ------------- | ------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | - |
-| orderIdString | string  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                                                           |   |
-| clientorderId | string  | `213443`               | 订单ID（自己发送的）                                                                                                |   |
-| symbol        | string  | `BTCUSDT`              | 币对名称                                                                                                       |   |
-| transactTime  | integer | `1273774892913`        | 订单创建时间                                                                                                     |   |
-| price         | float   | `4765.29`              | 订单价格                                                                                                       |   |
-| origQty       | float   | `1.01`                 | 订单数量                                                                                                       |   |
-| executedQty   | float   | `1.01`                 | 已经成交订单数量                                                                                                   |   |
-| type          | string  | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
-| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
-| status        | string  | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
+| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                |   |
+| ------------- | ------- | ---------------------- | ----------------------------------------- | - |
+| orderIdString | string  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                          |   |
+| clientorderId | string  | `213443`               | 订单ID（自己发送的）                               |   |
+| symbol        | string  | `BTCUSDT`              | 币对名称                                      |   |
+| transactTime  | integer | `1273774892913`        | 订单创建时间                                    |   |
+| price         | float   | `4765.29`              | 订单价格                                      |   |
+| origQty       | float   | `1.01`                 | 订单数量                                      |   |
+| executedQty   | float   | `1.01`                 | 已经成交订单数量                                  |   |
+| type          | string  | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）               |   |
+| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空） |   |
+| status        | string  | `0`                    | 0 = 新订单                                   |   |
 
 {% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.com" summary=" 创建测试订单" %}
 {% swagger-description %}
