@@ -955,7 +955,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | id                    | integer | 2     | 仓位id                     |
 | uid                   | integer | 10023 | 用户ID                     |
 | positionType          | integer | 1     | 持仓类型(1 全仓，2 仓逐)          |
-| side                  | string  | SELL  | 持仓方向 SELL 多仓, BUY 空仓     |
+| side                  | string  | SELL  | 持仓方向 BUY 多仓, SELL 空仓     |
 | volume                | float   | 1.05  | 持仓数量                     |
 | openPrice             | float   | 1.05  | 开仓价格                     |
 | avgPrice              | float   | 1.05  | 持仓均价                     |
