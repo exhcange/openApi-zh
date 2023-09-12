@@ -13,19 +13,19 @@ WebSocket是HTML5一种新的协议（Protocol）。它实现了客户端与服�
 ### 基本信息
 
 * 行情基础站点: <mark style="color:blue;">wss://ws.xxx.com/kline-api/ws</mark>
-* 返回数据除了心跳数据都会二进制压缩(用户需要通过Gzip算法进行解压)
+* 返回数据都会二进制压缩(用户需要通过Gzip算法进行解压）
+
+
+
+### 心跳机制
+
+服务器每10秒主动推送ping消息，客户端接收到后可自行决定是否处理（服务器并不对客户端的pong回复进行严格的一对一校验和时间校验）。 为了保障链接的有效性，建议客户端在收到服务器的ping消息后立即回复pong。 服务端发送ping消息格式： {"ping": 时间戳（秒级）} 客户端回复pong消息格式： {"pong": 时间戳（秒级）} 示例： {"pong":1694416595}
+
+
 
 ### 参数示例  <a href="#can-shu-shi-li" id="can-shu-shi-li"></a>
 
-| sub   | `market_$symbol_depth_step0`  | `订阅深度`           |   | 描述     |
-| ----- | ----------------------------- | ---------------- | - | ------ |
-| unsub | `market_$symbol_depth_step0`  | `取消订阅深度`         |   | 币对名称   |
-| sub   | `market_$symbol_trade_ticker` | `订阅实时成交`         |   | base货币 |
-| unsub | `market_$symbol_trade_ticker` | `取消订阅实时成交`       |   | 计价货币   |
-| sub   | `market_$symbol_ticker`       | `订阅24h行情数据`      |   | 价格精度   |
-| unsub | `market_$symbol_ticker`       | `取消订阅24h行情数据`    |   | 数量精度   |
-| sub   | `market_$symbol_kline_1min`   | `订阅1min实时k线信息`   |   |        |
-| reg   | `market_$symbol_kline_1month` | `请求1month历史k线记录` |   |        |
+<table data-header-hidden><thead><tr><th>event</th><th width="313">channel</th><th width="220">description</th><th></th><th>描述</th></tr></thead><tbody><tr><td>sub</td><td><code>market_$symbol_depth_step0</code></td><td><code>订阅深度</code></td><td></td><td>描述</td></tr><tr><td>unsub</td><td><code>market_$symbol_depth_step0</code></td><td><code>取消订阅深度</code></td><td></td><td>币对名称</td></tr><tr><td>sub</td><td><code>market_$symbol_trade_ticker</code></td><td><code>订阅实时成交</code></td><td></td><td>base货币</td></tr><tr><td>unsub</td><td><code>market_$symbol_trade_ticker</code></td><td><code>取消订阅实时成交</code></td><td></td><td>计价货币</td></tr><tr><td>sub</td><td><code>market_$symbol_ticker</code></td><td><code>订阅24h行情数据</code></td><td></td><td>价格精度</td></tr><tr><td>unsub</td><td><code>market_$symbol_ticker</code></td><td><code>取消订阅24h行情数据</code></td><td></td><td>数量精度</td></tr><tr><td>sub</td><td><code>market_$symbol_kline_1min</code></td><td><code>订阅1min实时k线信息</code></td><td></td><td></td></tr><tr><td>reg</td><td><code>market_$symbol_kline_1month</code></td><td><code>请求1month历史k线记录</code></td><td></td><td></td></tr></tbody></table>
 
 
 
