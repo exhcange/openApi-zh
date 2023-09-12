@@ -867,6 +867,7 @@ Responses200
 | side      | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空） |    |
 | bidUserId | long    | 23334                | 买方uid                                     |    |
 | askUserId | long    | 44112                | 卖方uid                                     |    |
+| isSelf    | boolean | true                 | 是否是自成交                                    |    |
 
 ## 账户
 
