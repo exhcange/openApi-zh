@@ -541,6 +541,15 @@ k线图区间, 可识别发送的值为：
 
 **权重(IP/UID): 10**
 
+#### Resquest `orders` field:
+
+| 名称        | 类型     | 例子             | 描述 |
+| --------- | ------ | -------------- | -- |
+| price     | folat  | 1000           | 价格 |
+| volume    | folat  | 20.1           | 数量 |
+| side      | String | BUY/SELL       | 方向 |
+| batchType | String | `LIMIT/MARKET` | 类型 |
+
 #### Resquest: <a href="#resquest-orders-field" id="resquest-orders-field"></a>
 
 | idsString | String  | “3213213” | String类型的订单号集合 |   |
