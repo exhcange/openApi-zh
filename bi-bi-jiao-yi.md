@@ -577,7 +577,7 @@ k线图区间, 可识别发送的值为：
 订单id
 {% endswagger-parameter %}
 
-{% swagger-parameter in="query" name="newClientorderId" required="false" %}
+{% swagger-parameter in="query" name="newClientOrderId" required="false" %}
 客户端订单标识
 {% endswagger-parameter %}
 
