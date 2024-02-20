@@ -6,9 +6,9 @@
 
 公共下方的接口不需要API-key或者签名就能自由访问
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/ping" method="get" summary=" 测试连接" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/ping" method="get" summary=" 测试连接" %}
 {% swagger-description %}
- 测试REST API的连通性
+&#x20;测试REST API的连通性
 {% endswagger-description %}
 
 {% swagger-response status="200" description=" 连接正常" %}
@@ -18,7 +18,7 @@
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/time" method="get" summary="获取服务器时间" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/time" method="get" summary="获取服务器时间" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -40,7 +40,7 @@
 | serverTime | long   | 1607702400000 | 服务器时间戳 |
 | timezone   | string | 中国标准时间        | 服务器时区  |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/contracts" method="get" summary="合约列表" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/contracts" method="get" summary="合约列表" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -93,17 +93,17 @@
 
 行情下方的接口不需要API-Key或者签名就能自由访问
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/depth" method="get" summary=" 订单薄" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/depth" method="get" summary=" 订单薄" %}
 {% swagger-description %}
- 市场订单薄深度信息
+&#x20;市场订单薄深度信息
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
- 默认100; 最大100
+&#x20;默认100; 最大100
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约合约名称 如 E-BTC-USDT
+&#x20;合约合约名称 如 E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description=" 成功获取深度信息" %}
@@ -149,13 +149,13 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | ' ' | float | `131.1` | 价格        |
 | ' ' | float | `2.3`   | 当前价格对应的数量 |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.com" path="/fapi/v1/ticker" method="get" summary=" 行情ticker" %}
+{% swagger baseUrl="https://futuersopenapi.xxx.xx" path="/fapi/v1/ticker" method="get" summary=" 行情ticker" %}
 {% swagger-description %}
 24小时价格变化数据
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约名称 如 E-BTC-USDT
+&#x20;合约名称 如 E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description=" 成功获取ticker信息" %}
@@ -183,17 +183,17 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | vol  | float  | `4999`          | 交易量 |
 | rose | string | +0.5            | 涨跌幅 |
 
-{% swagger baseUrl="https://futuersopenapi.xxx.com" path="/fapi/v1/index" method="get" summary=" 获取指数/标记价格" %}
+{% swagger baseUrl="https://futuersopenapi.xxx.xx" path="/fapi/v1/index" method="get" summary=" 获取指数/标记价格" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约名称 如 E-BTC-USDT
+&#x20;合约名称 如 E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" type="string" %}
- 默认100; 最大1000
+&#x20;默认100; 最大1000
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -218,53 +218,21 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | `contractName`    | string | `E-BTC-USDT` | 合约名称   |
 | `lastFundingRate` | float  | `0.123`      | 本期资金费率 |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/klines" method="get" summary="K线/蜡烛图数据" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/klines" method="get" summary="K线/蜡烛图数据" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约名称 如 E-BTC-USDT
+&#x20;合约名称 如 E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="interval" type="string" %}
- k线图区间, 可识别发送的值为： 
-
-`1min`
-
-,
-
-`5min`
-
-,
-
-`15min`
-
-,
-
-`30min`
-
-,
-
-`1h`
-
-,
-
-`1day`
-
-,
-
-`1week`
-
-,
-
-`1month`
-
-（min=分钟，h=小时,day=天，week=星期，month=月）
+&#x20;k线图区间, 可识别发送的值为： `1min`,`5min`,`15min`,`30min`,`1h`,`1day`,`1week`,`1month`（min=分钟，h=小时,day=天，week=星期，month=月）
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" type="integer" %}
- 默认100; 最大300
+&#x20;默认100; 最大300
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -316,7 +284,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 交易下方的接口都需要[签名和API-key验证](broken-reference)
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/order" method="post" summary="创建订单" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/order" method="post" summary="创建订单" %}
 {% swagger-description %}
 创建单个新订单
 {% endswagger-description %}
@@ -342,33 +310,23 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-合约名称 如 
-
-`E-BTC-USDT`
+合约名称 如 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" type="string" %}
-订单类型, 
-
-`LIMIT/MARKET`
+订单类型, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" type="string" %}
-买卖方向, 
-
-`BUY/SELL`
+买卖方向, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="open" type="string" %}
-开平仓方向, 
-
-`OPEN/CLOSE`
+开平仓方向, `OPEN/CLOSE`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="positionType" type="number" %}
-持仓类型, 
-
-`1全仓/2逐仓`
+持仓类型, `1全仓/2逐仓`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="clientOrderId" type="string" %}
@@ -394,7 +352,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | ------- | ------ | -------------------- | ---- |
 | orderId | string | `256609229205684228` | 订单ID |
 
-{% swagger method="post" path="/conditionOrder" baseUrl="https://futuresopenapi.xxx.com/fapi/v1" summary="创建条件单" %}
+{% swagger method="post" path="/conditionOrder" baseUrl="https://futuresopenapi.xxx.xx/fapi/v1" summary="创建条件单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -412,7 +370,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="volume" type="number" %}
- 下单数量
+&#x20;下单数量
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="price" type="number" %}
@@ -420,33 +378,23 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-合约名称 如 
-
-`E-BTC-USDT`
+合约名称 如 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" type="string" %}
-订单类型, 
-
-`LIMIT/MARKET`
+订单类型, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" type="string" %}
-买卖方向, 
-
-`BUY/SELL`
+买卖方向, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="open" type="string" %}
-开平仓方向, 
-
-`OPEN/CLOSE`
+开平仓方向, `OPEN/CLOSE`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="positionType" type="number" %}
-持仓类型, 
-
-`1全仓/2逐仓`
+持仓类型, `1全仓/2逐仓`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="clientOrderId" type="string" %}
@@ -458,9 +406,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="triggerType	" type="string" %}
-条件单类型，
-
-`3追涨/4杀跌`
+条件单类型，`3追涨/4杀跌`
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description="" %}
@@ -472,31 +418,29 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/cancel" method="post" summary=" 取消订单" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/cancel" method="post" summary=" 取消订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
- 签名
+&#x20;签名
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
- 您的API-key
+&#x20;您的API-key
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
- 时间戳
+&#x20;时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
- 合约名称如 
-
-`E-BTC-USDT`
+&#x20;合约名称如 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="orderId" type="string" %}
- 订单ID
+&#x20;订单ID
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -508,7 +452,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/order" method="get" summary="订单详情" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/order" method="get" summary="订单详情" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -518,7 +462,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="orderId" required="true" type="string" %}
-订单ID 
+订单ID&#x20;
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="clientOrderId" type="string" %}
@@ -564,36 +508,26 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                          |
 | `transactTime` | long   | `1607702400000`      | 订单创建时间                                                                                                |
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/openOrders" method="get" summary=" 当前订单" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/openOrders" method="get" summary=" 当前订单" %}
 {% swagger-description %}
- 
-
-**限速规则:**
-
- 
-
-\
-
-
+&#x20;**限速规则:** \
 **获取当前合约, 该用户的当前委托**
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
- 签名
+&#x20;签名
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
- 您的API-key
+&#x20;您的API-key
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-TS" type="string" %}
- 时间戳
+&#x20;时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约名称 
-
-`E-BTC-USDT`
+&#x20;合约名称 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -634,7 +568,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                           |
 | `transactTime` | long   | `1607702400000`      | 订单创建时间,                                                                                                |
 
-{% swagger method="post" path="/fapi/v1/orderHistorical" baseUrl="https://futuresopenapi.xxx.com" summary="历史委托" %}
+{% swagger method="post" path="/fapi/v1/orderHistorical" baseUrl="https://futuresopenapi.xxx.xx" summary="历史委托" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -652,9 +586,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-合约名称 
-
-`E-BTC-USDT`
+合约名称 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="limit" type="string" %}
@@ -696,7 +628,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="post" path="/fapi/v1/profitHistorical" baseUrl="https://futuresopenapi.xxx.com" summary="盈亏记录" %}
+{% swagger method="post" path="/fapi/v1/profitHistorical" baseUrl="https://futuresopenapi.xxx.xx" summary="盈亏记录" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -714,9 +646,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="contractName" type="string" %}
-合约名称 
-
-`E-BTC-USDT`
+合约名称 `E-BTC-USDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="limit" type="string" %}
@@ -754,33 +684,33 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger baseUrl="https://futuresopenapi.xxx.com" path="/fapi/v1/myTrades" method="get" summary=" 交易记录" %}
+{% swagger baseUrl="https://futuresopenapi.xxx.xx" path="/fapi/v1/myTrades" method="get" summary=" 交易记录" %}
 {% swagger-description %}
 
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
- 签名
+&#x20;签名
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
- 您的API-key
+&#x20;您的API-key
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
- 时间戳
+&#x20;时间戳
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="contractName" type="string" %}
- 合约名称 如 E-BTC-USDT
+&#x20;合约名称 如 E-BTC-USDT
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" type="string" %}
- 分页条数, 默认100; 最大1000
+&#x20;分页条数, 默认100; 最大1000
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="fromId" type="long" %}
- 从这个tradeId开始检索
+&#x20;从这个tradeId开始检索
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description="" %}
@@ -835,15 +765,15 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 {% endswagger-description %}
 
 {% swagger-parameter in="header" name="X-CH-SIGN" type="string" %}
- 签名
+&#x20;签名
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-APIKEY" type="string" %}
- 您的API-key
+&#x20;您的API-key
 {% endswagger-parameter %}
 
 {% swagger-parameter in="header" name="X-CH-TS" type="integer" %}
- 时间戳
+&#x20;时间戳
 {% endswagger-parameter %}
 
 {% swagger-response status="200" description=" 获取账户信息成功" %}
