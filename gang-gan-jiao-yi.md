@@ -6,7 +6,7 @@
 
 交易下方的接口都需要签名API Key验证
 
-{% swagger method="post" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.com" summary=" 创建杠杆订单" %}
+{% swagger method="post" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.xx" summary=" 创建杠杆订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -24,9 +24,7 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" %}
-币对名称 E.g. 
-
-`BTCUSDT`
+币对名称 E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="volume" type="number" %}
@@ -34,23 +32,15 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="side" %}
-订单方向, 
-
-`BUY/SELL`
+订单方向, `BUY/SELL`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="type" %}
-订单类型, 
-
-`LIMIT/MARKET`
+订单类型, `LIMIT/MARKET`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="price" type="number" %}
-订单价格, 对于
-
-`LIMIT`
-
-订单必须发送
+订单价格, 对于`LIMIT`订单必须发送
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="newClientOrderId" %}
@@ -83,7 +73,7 @@
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.com" summary=" 杠杆订单查询" %}
+{% swagger method="get" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.xx" summary=" 杠杆订单查询" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -109,11 +99,7 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" %}
-币对名称E.g. 
-
-`BTCUSDT`
-
-Header
+币对名称E.g. `BTCUSDT`Header
 {% endswagger-parameter %}
 
 {% swagger-response status="200: OK" description=" 查询杠杆订单成功" %}
@@ -139,7 +125,7 @@ Header
 
 
 
-{% swagger method="post" path="/sapi/v1/margin/cancel" baseUrl="https://openapi.xxx.com" summary=" 撤销杠杆订单" %}
+{% swagger method="post" path="/sapi/v1/margin/cancel" baseUrl="https://openapi.xxx.xx" summary=" 撤销杠杆订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -161,9 +147,7 @@ Header
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" %}
-币对名称 E.g. 
-
-`BTCUSDT`
+币对名称 E.g. `BTCUSDT`
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="newClientOrderId" %}
@@ -192,7 +176,7 @@ Header
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/openOrders" baseUrl="https://openapi.xxx.com" summary=" 杠杆当前委托" %}
+{% swagger method="get" path="/sapi/v1/margin/openOrders" baseUrl="https://openapi.xxx.xx" summary=" 杠杆当前委托" %}
 {% swagger-description %}
 **权重(IP/UID): 5**
 
@@ -212,11 +196,7 @@ Header
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="symbol" %}
-币对名称E.g. 
-
-`BTCUSDT`
-
-Header
+币对名称E.g. `BTCUSDT`Header
 {% endswagger-parameter %}
 
 {% swagger-parameter in="query" name="limit" %}
@@ -247,7 +227,7 @@ Header
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/myTrades" baseUrl="https://openapi.xxx.com" summary=" 杠杆交易记录" %}
+{% swagger method="get" path="/sapi/v1/margin/myTrades" baseUrl="https://openapi.xxx.xx" summary=" 杠杆交易记录" %}
 {% swagger-description %}
 
 {% endswagger-description %}
