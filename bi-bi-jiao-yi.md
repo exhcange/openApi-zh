@@ -4,7 +4,7 @@
 
 ### 安全类型: None
 
-{% swagger method="get" path="/sapi/v1/ping" baseUrl="https://openapi.xxx.com" summary="测试连接" %}
+{% swagger method="get" path="/sapi/v1/ping" baseUrl="https://openapi.xxx.xx" summary="测试连接" %}
 {% swagger-description %}
 测试REST API的连通性
 {% endswagger-description %}
@@ -16,7 +16,7 @@
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/sapi/v1/time" baseUrl="https://openapi.xxx.com" summary="服务器时间" %}
+{% swagger method="get" path="/sapi/v1/time" baseUrl="https://openapi.xxx.xx" summary="服务器时间" %}
 {% swagger-description %}
 获取服务器时间
 {% endswagger-description %}
@@ -31,7 +31,7 @@
 {% endswagger-response %}
 {% endswagger %}
 
-{% swagger method="get" path="/sapi/v1/symbols" baseUrl="https://openapi.xxx.com" summary="币对列表 " %}
+{% swagger method="get" path="/sapi/v1/symbols" baseUrl="https://openapi.xxx.xx" summary="币对列表 " %}
 {% swagger-description %}
 市场支持的币对集合esponse:
 
@@ -99,7 +99,7 @@
 
 ### 安全类型: None
 
-{% swagger method="get" path="/sapi/v1/depth" baseUrl="https://openapi.xxx.com" summary="订单薄" %}
+{% swagger method="get" path="/sapi/v1/depth" baseUrl="https://openapi.xxx.xx" summary="订单薄" %}
 {% swagger-description %}
 市场订单薄深度信息
 {% endswagger-description %}
@@ -155,7 +155,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | --- | ----- | ------- | --------- |
 | ' ' | float | `2.3`   | 当前价格对应的数量 |
 
-{% swagger method="get" path="/sapi/v1/ticker" baseUrl="https://openapi.xxx.com" summary=" 行情ticker" %}
+{% swagger method="get" path="/sapi/v1/ticker" baseUrl="https://openapi.xxx.xx" summary=" 行情ticker" %}
 {% swagger-description %}
 24小时价格变化数据
 {% endswagger-description %}
@@ -195,7 +195,7 @@ Responses200
 | vol  | float | `4999`          | 交易量 |   |
 | rose | float | 0               | 涨幅  |   |
 
-{% swagger method="get" path="/sapi/v1/trades" baseUrl="https://openapi.xxx.com" summary="最近成交" %}
+{% swagger method="get" path="/sapi/v1/trades" baseUrl="https://openapi.xxx.xx" summary="最近成交" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -236,7 +236,7 @@ Responses200
 | qty   | float  | `5`             | 数量（张数）           |   |
 | side  | string | `BUY/SELL`      | 主动单方向            |   |
 
-{% swagger method="get" path="/sapi/v1/klines" baseUrl="https://openapi.xxx.com" summary="K线/蜡烛图数据" %}
+{% swagger method="get" path="/sapi/v1/klines" baseUrl="https://openapi.xxx.xx" summary="K线/蜡烛图数据" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -333,7 +333,7 @@ k线图区间, 可识别发送的值为：
 
 交易下方的接口都需要签名和API-Key验证
 
-{% swagger method="post" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 创建新订单" %}
+{% swagger method="post" path="/sapi/v1/order" baseUrl="https://openapi.xxx.xx" summary=" 创建新订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -424,7 +424,7 @@ k线图区间, 可识别发送的值为：
 | side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空） |   |
 | status        | string  | `0`                    | 0 = 新订单                                   |   |
 
-{% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.com" summary=" 创建测试订单" %}
+{% swagger method="post" path="/sapi/v1/order/test" baseUrl="https://openapi.xxx.xx" summary=" 创建测试订单" %}
 {% swagger-description %}
 创建和验证新订单, 但不会送入撮合引擎
 {% endswagger-description %}
@@ -494,7 +494,7 @@ k线图区间, 可识别发送的值为：
 
 ***
 
-{% swagger method="post" path="/sapi/v1/batchOrders" baseUrl="https://openapi.xxx.com" summary=" 批量下单" %}
+{% swagger method="post" path="/sapi/v1/batchOrders" baseUrl="https://openapi.xxx.xx" summary=" 批量下单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -556,7 +556,7 @@ k线图区间, 可识别发送的值为：
 | --------- | ------- | --------- | -------------- | - |
 | ids       | integer | 2100      | 订单号集合          |   |
 
-{% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.com" summary=" 订单查询" %}
+{% swagger method="get" path="/sapi/v1/order" baseUrl="https://openapi.xxx.xx" summary=" 订单查询" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -625,7 +625,7 @@ Header
 | status        | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 | transactTime  | string  | 1574327555669        | 订单创建时间                                                                                                     |   |
 
-{% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.com" summary="撤销订单" %}
+{% swagger method="post" path="/sapi/v1/cancel" baseUrl="https://openapi.xxx.xx" summary="撤销订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -681,7 +681,7 @@ Responses200
 | symbol        | string | `BTCUSDT`            | 币对名称                                                                                                       |   |
 | status        | string | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
-{% swagger method="post" path="/sapi/v1/batchCancel" baseUrl="https://openapi.xxx.com" summary="批量撤销订单" %}
+{% swagger method="post" path="/sapi/v1/batchCancel" baseUrl="https://openapi.xxx.xx" summary="批量撤销订单" %}
 {% swagger-description %}
 **一次批量最多10个订单**
 {% endswagger-description %}
@@ -736,7 +736,7 @@ Responses200
 
 ***
 
-{% swagger method="get" path="/sapi/v1/openOrders" baseUrl="https://openapi.xxx.com" summary=" 当前订单" %}
+{% swagger method="get" path="/sapi/v1/openOrders" baseUrl="https://openapi.xxx.xx" summary=" 当前订单" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -801,7 +801,7 @@ Responses200
 | status        | string | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 | time          | string | 1574327555669          | 创建时间                                                                                                       |   |
 
-{% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.com" summary=" 交易记录" %}
+{% swagger method="get" path="/sapi/v1/myTrades" baseUrl="https://openapi.xxx.xx" summary=" 交易记录" %}
 {% swagger-description %}
 
 
@@ -882,7 +882,7 @@ Responses200
 
 ### 安全类型: USER\_DATA
 
-{% swagger method="get" path="/sapi/v1/account" baseUrl="https://openapi.xxx.com" summary="账户信息" %}
+{% swagger method="get" path="/sapi/v1/account" baseUrl="https://openapi.xxx.xx" summary="账户信息" %}
 {% swagger-description %}
 
 {% endswagger-description %}
