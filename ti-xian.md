@@ -2,7 +2,7 @@
 
 ## 提现
 
-{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.com" summary="发起提现" %}
+{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.xx" summary="发起提现" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -20,11 +20,7 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" type="String" %}
-币种，支持多主链的币需要传实际的币种名称，参照
-
-[附录1](fu-lu-1.md)
-
-
+币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="withdrawOrderId" required="true" type="String" %}
@@ -58,7 +54,7 @@
 
 **权重(IP/UID): 100**
 
-{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.com" summary="提现记录查询" %}
+{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.xx" summary="提现记录查询" %}
 {% swagger-description %}
 
 {% endswagger-description %}
@@ -76,11 +72,7 @@
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="symbol" type="String" %}
-币种，支持多主链的币需要传实际的币种名称，参照
-
-[附录1](fu-lu-1.md)
-
-
+币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md)
 {% endswagger-parameter %}
 
 {% swagger-parameter in="body" name="withdrawId" type="String" %}
