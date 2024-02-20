@@ -4,7 +4,7 @@
 
 ## API基本信息
 
-* 本篇列出REST接口的baseurl `https://openapi.xxx.com`
+* 本篇列出REST接口的baseurl `https://openapi.xxx.xx`
 * 所有接口都会返回一个JSON object或者array.
 * 响应中如有数组，数组元素以时间倒序排列，越早的数据越提前.
 * 所有时间、时间戳均为UNIX时间，单位为毫秒.
