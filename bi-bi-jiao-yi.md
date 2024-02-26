@@ -283,6 +283,14 @@ k线图区间, 可识别发送的值为：
 （min=分钟，h=小时,day=天，week=星期，month=月）
 {% endswagger-parameter %}
 
+{% swagger-parameter in="query" name="startTime" type="long" %}
+起始时间点
+{% endswagger-parameter %}
+
+{% swagger-parameter in="query" name="endTime" type="long" %}
+截止时间点
+{% endswagger-parameter %}
+
 {% swagger-response status="200: OK" description="成功" %}
 ```javascript
 [
