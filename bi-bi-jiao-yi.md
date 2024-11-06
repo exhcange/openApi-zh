@@ -425,6 +425,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | Name                                     | Type   | Description                                 |
 | ---------------------------------------- | ------ | ------------------------------------------- |
 | symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p> |
+| symbolName                               | String | 币种显示名称, symbol和symbolName二选一填写              |
 | orders                                   | number | 批量订单信息 最多10条                                |
 
 {% tabs %}
@@ -474,6 +475,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | orderId<mark style="color:red;">\*</mark> | String | 订单id                                                     |
 | newClientOrderId                          | String | 客户端订单标识                                                  |
 | symbol<mark style="color:red;">\*</mark>  | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Header</p> |
+| symbol                                    | String | 币种显示名称, symbol和symbolName二选一填写                           |
 
 #### Headers
 
