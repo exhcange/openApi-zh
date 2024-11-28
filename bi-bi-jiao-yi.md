@@ -54,9 +54,9 @@
             "pricePrecision": 6,
             "baseAsset": "SCCA",
             "quoteAsset": "DAI",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 8,
@@ -64,9 +64,9 @@
             "pricePrecision": 2,
             "baseAsset": "BTC",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 3,
@@ -74,9 +74,9 @@
             "pricePrecision": 2,
             "baseAsset": "BCH",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -84,9 +84,9 @@
             "pricePrecision": 2,
             "baseAsset": "ETC",
             "quoteAsset": "USDT",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -94,9 +94,9 @@
             "pricePrecision": 6,
             "baseAsset": "LTC",
             "quoteAsset": "BTC",
-            "limitAmountMin":100,
-            "limitPriceMin":123.45,
-            "limitVolumeMin":10
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         }
     ]
 }
@@ -108,16 +108,16 @@
 
 #### Response: <a href="#bi-dui-lie-biao" id="bi-dui-lie-biao"></a>
 
-| 名称                | 类型         | 例子        | 描述             |
-| ----------------- | ---------- | --------- | -------------- |
-| symbol            | string     | `BTCUSDT` | 币对名称           |
-| baseAsset         | string     | `BTC`     | base货币         |
-| quoteAsset        | string     | `USDT`    | 计价货币           |
-| pricePrecision    | integer    | `2`       | 价格精度           |
-| quantityPrecision | integer    | `6`       | 数量精度           |
-| limitAmountMin    | BigDecimal | 100       | 限价单最小下单金额quote |
-| limitPriceMin     | BigDecimal | 100       | 限价单最小价格        |
-| limitVolumeMin    | BigDecimal | 100       | 限价单最小下单数量base  |
+| 名称                | 类型      | 例子        | 描述             |
+| ----------------- | ------- | --------- | -------------- |
+| symbol            | string  | `BTCUSDT` | 币对名称           |
+| baseAsset         | string  | `BTC`     | base货币         |
+| quoteAsset        | string  | `USDT`    | 计价货币           |
+| pricePrecision    | integer | `2`       | 价格精度           |
+| quantityPrecision | integer | `6`       | 数量精度           |
+| limitAmountMin    | String  | 100       | 限价单最小下单金额quote |
+| limitPriceMin     | String  | 100       | 限价单最小价格        |
+| limitVolumeMin    | String  | 100       | 限价单最小下单数量base  |
 
 ## 行情
 
