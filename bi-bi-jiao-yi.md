@@ -559,6 +559,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | orderId<mark style="color:red;">\*</mark> | String | 订单id                                                           |
 | newClientOrderId                          | String | 客户端订单标识                                                        |
 | symbol<mark style="color:red;">\*</mark>  | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Responses200</p> |
+| symbolName                                | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>          |
 
 {% tabs %}
 {% tab title="200: OK  撤销订单成功" %}
@@ -604,6 +605,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | ------------------------------------------ | ------ | -------------------------------------------------------------------- |
 | orderIds<mark style="color:red;">\*</mark> | String | <p>要取消的订单id集合</p><p><code>[123,456]</code></p><p>Responses200GET</p> |
 | symbol<mark style="color:red;">\*</mark>   | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Responses200</p>       |
+| symbolName                                 | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>                |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -634,10 +636,11 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Query Parameters
 
-| Name                                     | Type   | Description                                 |
-| ---------------------------------------- | ------ | ------------------------------------------- |
-| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p> |
-| limit                                    | String | 默认100; 最大1000                               |
+| Name                                     | Type   | Description                                           |
+| ---------------------------------------- | ------ | ----------------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>           |
+| limit                                    | String | 默认100; 最大1000                                         |
+| symbolName                               | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p> |
 
 #### Headers
 
