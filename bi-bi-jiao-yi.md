@@ -336,16 +336,16 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name                                     | Type    | Description                                           |
-| ---------------------------------------- | ------- | ----------------------------------------------------- |
-| symbol                                   | String  | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>           |
-| symbolName                               | String  | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p> |
-| volume<mark style="color:red;">\*</mark> | number  | 订单数量                                                  |
-| side<mark style="color:red;">\*</mark>   | String  | <p>订单方向,</p><p><code>BUY/SELL</code></p>              |
-| type<mark style="color:red;">\*</mark>   | String  | <p>订单类型,</p><p><code>LIMIT/MARKET</code></p>          |
-| price                                    | number  | <p>订单价格, 对于</p><p><code>LIMIT</code></p><p>订单必须发送</p> |
-| newClientOrderId                         | String  | 客户端订单标识                                               |
-| recvwindow                               | integer | 时间窗口                                                  |
+| Name                                     | Type    | Description                                                    |
+| ---------------------------------------- | ------- | -------------------------------------------------------------- |
+| symbol                                   | String  | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>                    |
+| symbolName                               | String  | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>          |
+| volume<mark style="color:red;">\*</mark> | number  | 订单数量                                                           |
+| side<mark style="color:red;">\*</mark>   | String  | <p>订单方向,</p><p><code>BUY/SELL</code></p>                       |
+| type<mark style="color:red;">\*</mark>   | String  | <p>订单类型,</p><p><code>LIMIT/MARKET/FOK/POST_ONLY/IOC</code></p> |
+| price                                    | number  | <p>订单价格, 对于</p><p><code>LIMIT</code></p><p>订单必须发送</p>          |
+| newClientOrderId                         | String  | 客户端订单标识                                                        |
+| recvwindow                               | integer | 时间窗口                                                           |
 
 {% tabs %}
 {% tab title="200: OK " %}
