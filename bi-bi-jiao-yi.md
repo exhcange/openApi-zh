@@ -118,6 +118,9 @@
 | limitAmountMin    | String  | 100       | 限价单最小下单金额quote |
 | limitPriceMin     | String  | 100       | 限价单最小价格        |
 | limitVolumeMin    | String  | 100       | 限价单最小下单数量base  |
+| baseAssetName     | String  | BTC       | 基准货币显示名称       |
+| quoteAssetName    | String  | USDT      | 计价货币显示名称       |
+| SymbolName        | String  | BTC/USDT  | 币对显示名称         |
 
 ## 行情
 
