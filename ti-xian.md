@@ -2,44 +2,30 @@
 
 ## 提现
 
-{% swagger method="post" path="/sapi/v1/withdraw/apply" baseUrl="https://openapi.xxx.xx" summary="发起提现" %}
-{% swagger-description %}
+## 发起提现
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/withdraw/apply`
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" required="true" type="String" %}
-您的API-Key
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-SIGN" required="true" type="String" %}
-签名
-{% endswagger-parameter %}
+| Name                                          | Type    | Description |
+| --------------------------------------------- | ------- | ----------- |
+| X-CH-APIKEY<mark style="color:red;">\*</mark> | String  | 您的API-Key   |
+| X-CH-SIGN<mark style="color:red;">\*</mark>   | String  | 签名          |
+| X-CH-TS<mark style="color:red;">\*</mark>     | Integer | 时间戳         |
 
-{% swagger-parameter in="header" name="X-CH-TS" required="true" type="Integer" %}
-时间戳
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="symbol" type="String" %}
-币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md)
-{% endswagger-parameter %}
+| Name                                              | Type   | Description                              |
+| ------------------------------------------------- | ------ | ---------------------------------------- |
+| withdrawOrderId<mark style="color:red;">\*</mark> | String | 自定义提现id，保证唯一                             |
+| amount<mark style="color:red;">\*</mark>          | String | 数量                                       |
+| address<mark style="color:red;">\*</mark>         | String | 提币地址                                     |
+| label                                             | String | 某些币种例如 XRP,XMR 允许填写次级地址标签                |
+| symbol                                            | String | 币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md) |
 
-{% swagger-parameter in="body" name="withdrawOrderId" required="true" type="String" %}
-自定义提现id，保证唯一
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="amount" required="true" type="String" %}
-数量
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="address" required="true" type="String" %}
-提币地址
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="label" type="String" %}
-某些币种例如 XRP,XMR 允许填写次级地址标签
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
     "code":"Ѳ",//返回码，0代表成功，其他失败
@@ -49,53 +35,36 @@
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 100**
 
-{% swagger method="post" path="/sapi/v1/withdraw/query" baseUrl="https://openapi.xxx.xx" summary="提现记录查询" %}
-{% swagger-description %}
+## 提现记录查询
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/withdraw/query`
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" required="true" type="String" %}
-您的API-Key
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-SIGN" required="true" type="String" %}
-签名
-{% endswagger-parameter %}
+| Name                                          | Type   | Description |
+| --------------------------------------------- | ------ | ----------- |
+| X-CH-APIKEY<mark style="color:red;">\*</mark> | String | 您的API-Key   |
+| X-CH-SIGN<mark style="color:red;">\*</mark>   | String | 签名          |
+| X-CH-TS<mark style="color:red;">\*</mark>     | String | 时间戳         |
 
-{% swagger-parameter in="header" name="X-CH-TS" required="true" type="String" %}
-时间戳
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="symbol" type="String" %}
-币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md)
-{% endswagger-parameter %}
+| Name            | Type   | Description                              |
+| --------------- | ------ | ---------------------------------------- |
+| symbol          | String | 币种，支持多主链的币需要传实际的币种名称，参照[附录1](fu-lu-1.md) |
+| withdrawId      | String | 平台提现id                                   |
+| withdrawOrderId | String | 自定义提现id                                  |
+| startTime       | Number | 开始时间，时间戳，默认90天前                          |
+| endTime         | Number | 结束时间，时间戳，默认当前时间                          |
+| page            | String | 页码，从1开始                                  |
 
-{% swagger-parameter in="body" name="withdrawId" type="String" %}
-平台提现id
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="withdrawOrderId" type="String" %}
-自定义提现id
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="startTime" type="Number" %}
-开始时间，时间戳，默认90天前
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="endTime" type="Number" %}
-结束时间，时间戳，默认当前时间
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="page" type="String" %}
-页码，从1开始
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```json
 {
     "code": "0",
@@ -133,8 +102,8 @@
     }
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 100**
 

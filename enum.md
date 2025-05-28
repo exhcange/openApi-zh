@@ -26,8 +26,4 @@
 * `BUY` 买单
 * `SELL` 卖
 
-{% swagger method="get" path="" baseUrl="" summary="" %}
-{% swagger-description %}
-
-{% endswagger-description %}
-{% endswagger %}
+<mark style="color:blue;">`GET`</mark>&#x20;

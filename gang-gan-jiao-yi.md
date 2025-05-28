@@ -6,52 +6,32 @@
 
 交易下方的接口都需要签名API Key验证
 
-{% swagger method="post" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.xx" summary=" 创建杠杆订单" %}
-{% swagger-description %}
+## &#x20;创建杠杆订单
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/margin/order`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
-签名
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
-您的API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| X-CH-SIGN   | String | 签名          |
+| X-CH-TS     | String | 时间戳         |
+| X-CH-APIKEY | String | 您的API-key   |
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
-时间戳
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="symbol" %}
-币对名称 E.g. `BTCUSDT`
-{% endswagger-parameter %}
+| Name             | Type   | Description           |
+| ---------------- | ------ | --------------------- |
+| type             | String | 订单类型, `LIMIT/MARKET`  |
+| recwwindow       | String | 时间窗口                  |
+| price            | number | 订单价格, 对于`LIMIT`订单必须发送 |
+| newClientOrderId | String | 客户端订单标识,不能超过32位       |
+| side             | String | 订单方向, `BUY/SELL`      |
+| volume           | number | 订单数量                  |
+| symbol           | String | 币对名称E.g.`BTC/USDT`    |
 
-{% swagger-parameter in="body" name="volume" type="number" %}
-订单数量
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="side" %}
-订单方向, `BUY/SELL`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="type" %}
-订单类型, `LIMIT/MARKET`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="price" type="number" %}
-订单价格, 对于`LIMIT`订单必须发送
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="newClientOrderId" %}
-客户端订单标识,不能超过32位
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="recwwindow" %}
-时间窗口
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description=" 发送杠杆订单成功" %}
+{% tabs %}
+{% tab title="200: OK  发送杠杆订单成功" %}
 ```javascript
 {
     'symbol': 'LXTUSDT', 
@@ -66,43 +46,35 @@
     'side': 'SELL'
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 5**
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/order" baseUrl="https://openapi.xxx.xx" summary=" 杠杆订单查询" %}
-{% swagger-description %}
+## &#x20;杠杆订单查询
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/margin/order`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
-签名
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
-您的API-key
-{% endswagger-parameter %}
+| Name             | Type   | Description        |
+| ---------------- | ------ | ------------------ |
+| orderId          | String | 订单ID               |
+| newClientOrderId | String | 客户端订单标识            |
+| symbol           | String | 币对名称E.g.`BTC/USDT` |
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
-时间戳
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" name="orderId" %}
-订单ID
-{% endswagger-parameter %}
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| X-CH-SIGN   | String | 签名          |
+| X-CH-TS     | String | 时间戳         |
+| X-CH-APIKEY | String | 您的API-key   |
 
-{% swagger-parameter in="query" name="newClientOrderId" %}
-客户端订单标识
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="symbol" %}
-币对名称E.g. `BTCUSDT`Header
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description=" 查询杠杆订单成功" %}
+{% tabs %}
+{% tab title="200: OK  查询杠杆订单成功" %}
 ```javascript
 {
     'orderId': '499890200602846976', 
@@ -118,43 +90,35 @@
     'transactTime': '1574327555669'
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 5**
 
 
 
-{% swagger method="post" path="/sapi/v1/margin/cancel" baseUrl="https://openapi.xxx.xx" summary=" 撤销杠杆订单" %}
-{% swagger-description %}
+## &#x20;撤销杠杆订单
 
-{% endswagger-description %}
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/margin/cancel`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
-签名
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
-您的API-key
-{% endswagger-parameter %}
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| X-CH-SIGN   | String | 签名          |
+| X-CH-TS     | String | 时间戳         |
+| X-CH-APIKEY | String | 您的API-key   |
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
-时间戳
-{% endswagger-parameter %}
+#### Request Body
 
-{% swagger-parameter in="body" name="orderId" %}
-订单id
-{% endswagger-parameter %}
+| Name             | Type   | Description        |
+| ---------------- | ------ | ------------------ |
+| newClientOrderId | String | 客户端订单标识            |
+| symbol           | String | 币对名称E.g.`BTC/USDT` |
+| orderId          | String | 订单id               |
 
-{% swagger-parameter in="body" name="symbol" %}
-币对名称 E.g. `BTCUSDT`
-{% endswagger-parameter %}
-
-{% swagger-parameter in="body" name="newClientOrderId" %}
-客户端订单标识
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description=" 发送杠杆订单成功" %}
+{% tabs %}
+{% tab title="200: OK  发送杠杆订单成功" %}
 ```javascript
 {
     'symbol': 'LXTUSDT', 
@@ -169,41 +133,38 @@
     'side': 'SELL'
 }
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 5**
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/openOrders" baseUrl="https://openapi.xxx.xx" summary=" 杠杆当前委托" %}
-{% swagger-description %}
+## &#x20;杠杆当前委托
+
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/margin/openOrders`
+
 **权重(IP/UID): 5**
 
 
-{% endswagger-description %}
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
-签名
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
-您的API-key
-{% endswagger-parameter %}
+| Name   | Type   | Description        |
+| ------ | ------ | ------------------ |
+| symbol | String | 币对名称E.g.`BTC/USDT` |
+| limit  | String | 默认100; 最大1000      |
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
-时间戳
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" name="symbol" %}
-币对名称E.g. `BTCUSDT`Header
-{% endswagger-parameter %}
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| X-CH-SIGN   | String | 签名          |
+| X-CH-TS     | String | 时间戳         |
+| X-CH-APIKEY | String | 您的API-key   |
 
-{% swagger-parameter in="query" name="limit" %}
-默认100; 最大1000
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 [
     {
@@ -220,43 +181,35 @@
         },...
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 1**
 
 
 
-{% swagger method="get" path="/sapi/v1/margin/myTrades" baseUrl="https://openapi.xxx.xx" summary=" 杠杆交易记录" %}
-{% swagger-description %}
+## &#x20;杠杆交易记录
 
-{% endswagger-description %}
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/margin/myTrades`
 
-{% swagger-parameter in="header" name="X-CH-SIGN" %}
-签名
-{% endswagger-parameter %}
+#### Query Parameters
 
-{% swagger-parameter in="header" name="X-CH-APIKEY" %}
-您的API-key
-{% endswagger-parameter %}
+| Name   | Type   | Description        |
+| ------ | ------ | ------------------ |
+| symbol | String | 币对名称E.g.`BTC/USDT` |
+| limit  | String | 默认100；最大1000       |
+| fromId | String | 从这个tradeld开始检索     |
 
-{% swagger-parameter in="header" name="X-CH-TS" %}
-时间戳
-{% endswagger-parameter %}
+#### Headers
 
-{% swagger-parameter in="query" name="symbol" %}
-币对名称 E.g. BTCUSDT
-{% endswagger-parameter %}
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| X-CH-SIGN   | String | 签名          |
+| X-CH-TS     | String | 时间戳         |
+| X-CH-APIKEY | String | 您的API-key   |
 
-{% swagger-parameter in="query" name="limit" %}
-默认100；最大1000
-{% endswagger-parameter %}
-
-{% swagger-parameter in="query" name="fromId" %}
-从这个tradeld开始检索
-{% endswagger-parameter %}
-
-{% swagger-response status="200: OK" description="" %}
+{% tabs %}
+{% tab title="200: OK " %}
 ```javascript
 [
   {
@@ -274,7 +227,7 @@
   },...
 ]
 ```
-{% endswagger-response %}
-{% endswagger %}
+{% endtab %}
+{% endtabs %}
 
 **权重(IP/UID): 1**
