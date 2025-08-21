@@ -312,7 +312,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | open          | string | 开平仓方向, `OPEN/CLOSE`                                                              |
 | positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                  |
 | clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                             |
-| timeInForce   | string | <p><code>IOC, FOK, POST_ONLY</code></p><p><code>市价单不需要该参数</code><br><br></p>     |
+| timeInForce   | string | <p><code>IOC, FOK, POST_ONLY</code>市价单不需要该参数<br><br></p>                         |
 
 {% tabs %}
 {% tab title="200 " %}
