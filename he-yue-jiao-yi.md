@@ -48,7 +48,7 @@
 
 {% tabs %}
 {% tab title="200 " %}
-```json
+```
 [
     {
         "symbol": "H-HT-USDT",
@@ -64,13 +64,7 @@
         "multiplierCoin": "HT",
         "minOrderMoney": 0.001,
         "maxLimitMoney": 1000000,
-        "status": 1,
-        "minLever": 1,
-        "maxLever": 75,
-        "openTakerFee":0.0002,
-        "openMakerFee":0.0002,
-        "closeTakerFee":0.0002,
-        "closeMakerFee":0.0002
+        "status": 1
     }
 ]
 ```
@@ -88,18 +82,12 @@
 | multiplier      | number | `0.5`        | 合约面值                          |
 | multiplierCoin  | string | `BTC`        | 合约面值单位                        |
 | pricePrecision  | number | `4`          | 价格精度                          |
-| minOrderVolume  | number | `10`         | 最小下单量                         |
+| minOrderVolume  | number | `10`         | 最小下单量，单位为“张”                  |
 | minOrderMoney   | number | `10`         | 最小下单金额                        |
-| maxMarketVolume | number | `100000`     | 市价单最大下单数量                     |
+| maxMarketVolume | number | `100000`     | 市价单最大下单数量,单位为“张”              |
 | maxMarketMoney  | number | `100000`     | 市价最大下单金额                      |
-| maxLimitVolume  | number | `100000`     | 限价单最大下单数量                     |
+| maxLimitVolume  | number | `100000`     | 限价单最大下单数量,单位为“张”              |
 | maxValidOrder   | number | `100000`     | 最大有效委托的订单数量                   |
-| minLever        | number | `5`          | 杠杆最小倍数                        |
-| maxLever        | number | `5`          | 杠杆最大倍数                        |
-| openTakerFee    | number | `0.0002`     | 开仓taker手续费                    |
-| openMakerFee    | number | `0.0002`     | 开仓maker手续费                    |
-| closeTakerFee   | number | `0.0002`     | 平仓taker手续费                    |
-| closeMakerFee   | number | `0.0002`     | 平仓maker手续费                    |
 
 ## 行情相关
 
@@ -202,43 +190,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | vol  | float  | `4999`          | 交易量 |
 | rose | string | +0.5            | 涨跌幅 |
 
-## 所有行情ticker&#x20;
-
-<mark style="color:blue;">`GET`</mark> `https://futuersopenapi.xxx.xx/fapi/v1/ticker_all`&#x20;
-
-{% tabs %}
-{% tab title="200  成功获取ticker信息" %}
-```json
-{"e_btcusdt":{"high": "9279.0301",
-    "vol": "1302",
-    "last": "9200",
-    "low": "9279.0301",
-    "rose": "0",
-    "time": 1595563624731
-},"e_ethusdt":{
-    "high": "9279.0301",
-    "vol": "1302",
-    "last": "9200",
-    "low": "9279.0301",
-    "rose": "0",
-    "time": 1595563624731
-}}
-```
-{% endtab %}
-{% endtabs %}
-
-#### Response:
-
-| 名称   | 类型     | 例子              | 描述  |   |
-| ---- | ------ | --------------- | --- | - |
-| time | long   | `1595563624731` | 时间戳 |   |
-| high | float  | `9900`          | 最高价 |   |
-| low  | float  | `8800.34`       | 最低价 |   |
-| last | float  | `8900`          | 最新价 |   |
-| vol  | float  | `4999`          | 交易量 |   |
-| rose | string | +0.5            | 涨跌幅 |   |
-
-## 获取指数/标记价格
+## &#x20;获取指数/标记价格
 
 <mark style="color:blue;">`GET`</mark> `https://futuersopenapi.xxx.xx/fapi/v1/index`
 
@@ -247,7 +199,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | Name         | Type   | Description        |
 | ------------ | ------ | ------------------ |
 | contractName | string |  合约名称 如 E-BTC-USDT |
-| limit        | string |  默认100; 最大1000     |
+| limit        | string |  默认100; 最大500      |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -350,17 +302,17 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name          | Type   | Description           |
-| ------------- | ------ | --------------------- |
-| volume        | number | 下单数量                  |
-| price         | number | 下单价格                  |
-| contractName  | string | 合约名称 如 `E-BTC-USDT`   |
-| type          | string | 订单类型, `LIMIT/MARKET`  |
-| side          | string | 买卖方向, `BUY/SELL`      |
-| open          | string | 开平仓方向, `OPEN/CLOSE`   |
-| positionType  | number | 持仓类型, `1全仓/2逐仓`       |
-| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串  |
-| timeInForce   | string | `IOC, FOK, POST_ONLY` |
+| Name          | Type   | Description                                                                      |
+| ------------- | ------ | -------------------------------------------------------------------------------- |
+| volume        | number | 下单数量，type为 LIMIT 时单位为：“张”，type为 MARKET 时单位为：“价值”（U本位时 “价值” 是“U”，币本位时 “价值” 是 “币”） |
+| price         | number | 下单价格                                                                             |
+| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                              |
+| type          | string | 订单类型, `LIMIT/MARKET`                                                             |
+| side          | string | 买卖方向, `BUY/SELL`                                                                 |
+| open          | string | 开平仓方向, `OPEN/CLOSE`                                                              |
+| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                  |
+| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                             |
+| timeInForce   | string | <p><code>IOC, FOK, POST_ONLY</code></p><p><code>市价单不需要该参数</code><br><br></p>     |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -392,18 +344,18 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name          | Type   | Description          |
-| ------------- | ------ | -------------------- |
-| volume        | number |  下单数量                |
-| price         | number | 下单价格                 |
-| contractName  | string | 合约名称 如 `E-BTC-USDT`  |
-| type          | string | 订单类型, `LIMIT/MARKET` |
-| side          | string | 买卖方向, `BUY/SELL`     |
-| open          | string | 开平仓方向, `OPEN/CLOSE`  |
-| positionType  | number | 持仓类型, `1全仓/2逐仓`      |
-| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串 |
-| triggerType	  | string | 条件单类型，`3追涨/4杀跌`      |
-| triggerPrice  | string | 触发价                  |
+| Name          | Type   | Description                                                                      |
+| ------------- | ------ | -------------------------------------------------------------------------------- |
+| volume        | number |  下单数量type为 LIMIT 时单位为：“张”，type为 MARKET 时单位为：“价值”（U本位时 “价值” 是“U”，币本位时 “价值” 是 “币”） |
+| price         | number | 下单价格                                                                             |
+| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                              |
+| type          | string | 订单类型, `LIMIT/MARKET`                                                             |
+| side          | string | 买卖方向, `BUY/SELL`                                                                 |
+| open          | string | 开平仓方向, `OPEN/CLOSE`                                                              |
+| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                  |
+| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                             |
+| triggerType	  | string | 条件单类型，`3追涨/4杀跌`                                                                  |
+| triggerPrice  | string | 触发价                                                                              |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -439,32 +391,6 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 ```java
 {
     "orderId": 256609229205684228
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## 取消全部订单
-
-<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/cancel_all`
-
-#### Headers
-
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| X-CH-SIGN   | string  |  签名         |
-| X-CH-APIKEY | string  |  您的API-key  |
-| X-CH-TS     | integer |  时间戳        |
-
-#### Request Body
-
-{% tabs %}
-{% tab title="200 : OK 成功code为0，code小于0为错误，msg为错误原因" %}
-```json
-{ 
-    "code": "0", 
-    "msg": "成功", 
-    "data": null 
 }
 ```
 {% endtab %}
@@ -531,9 +457,9 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Query Parameters
 
-| Name         | Type   | Description                     |
-| ------------ | ------ | ------------------------------- |
-| contractName | string | 不传该字段，查询全部合约。 合约名称 `E-BTC-USDT` |
+| Name         | Type   | Description        |
+| ------------ | ------ | ------------------ |
+| contractName | string |  合约名称 `E-BTC-USDT` |
 
 #### Headers
 
@@ -568,19 +494,19 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### **Response:**
 
-| 名称             | 类型     | 例子                   | 描述                                                                                                     |
-| -------------- | ------ | -------------------- | ------------------------------------------------------------------------------------------------------ |
-| `orderId`      | long   | `150695552109032492` | 订单ID（系统生成）                                                                                             |
-| `contractName` | string | `E-BTC-USDT`         | 合约名称                                                                                                   |
-| `price`        | float  | `4765.29`            | 订单价格                                                                                                   |
-| `origQty`      | float  | `1.01`               | 订单数量                                                                                                   |
-| `executedQty`  | float  | `1.01`               | 已经成交订单数量                                                                                               |
-| `avgPrice`     | float  | `4754.24`            | 订单已经成交的平均价格                                                                                            |
-| `type`         | string | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                                |
-| `side`         | string | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                              |
-| `status`       | string | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）. |
-| `action`       | string | `OPEN`               | `OPEN/CLOSE`                                                                                           |
-| `transactTime` | long   | `1607702400000`      | 订单创建时间,                                                                                                |
+| 名称             | 类型      | 例子                   | 描述                                                                                                     |
+| -------------- | ------- | -------------------- | ------------------------------------------------------------------------------------------------------ |
+| `orderId`      | long    | `150695552109032492` | 订单ID（系统生成）                                                                                             |
+| `contractName` | string  | `E-BTC-USDT`         | 合约名称                                                                                                   |
+| `price`        | float   | `4765.29`            | 订单价格                                                                                                   |
+| `origQty`      | integer | `1`                  | 订单数量                                                                                                   |
+| `executedQty`  | integer | `1`                  | 已经成交订单数量                                                                                               |
+| `avgPrice`     | float   | `4754.24`            | 订单已经成交的平均价格                                                                                            |
+| `type`         | string  | `LIMIT`              | 订单类型。可能出现的值只能为:`LIMIT`(限价)和`MARKET`（市价）                                                                |
+| `side`         | string  | `BUY`                | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                              |
+| `status`       | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）. |
+| `action`       | string  | `OPEN`               | `OPEN/CLOSE`                                                                                           |
+| `transactTime` | long    | `1607702400000`      | 订单创建时间,                                                                                                |
 
 ## 历史委托
 
@@ -596,11 +522,11 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name         | Type   | Description         |
-| ------------ | ------ | ------------------- |
-| contractName | string | 合约名称 `E-BTC-USDT`   |
-| limit        | string | 分页条数, 默认100; 最大1000 |
-| fromId       | long   | 从这条记录开始检索           |
+| Name         | Type   | Description        |
+| ------------ | ------ | ------------------ |
+| contractName | string | 合约名称 `E-BTC-USDT`  |
+| limit        | string | 分页条数, 默认100; 最大500 |
+| fromId       | long   | 从这条记录开始检索          |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -648,11 +574,11 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name         | Type   | Description         |
-| ------------ | ------ | ------------------- |
-| contractName | string | 合约名称 `E-BTC-USDT`   |
-| limit        | string | 分页条数, 默认100; 最大1000 |
-| fromId       | long   | 从这条记录开始检索           |
+| Name         | Type   | Description        |
+| ------------ | ------ | ------------------ |
+| contractName | string | 合约名称 `E-BTC-USDT`  |
+| limit        | string | 分页条数, 默认100; 最大500 |
+| fromId       | long   | 从这条记录开始检索          |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -688,11 +614,11 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Query Parameters
 
-| Name         | Type   | Description          |
-| ------------ | ------ | -------------------- |
-| contractName | string |  合约名称 如 E-BTC-USDT   |
-| limit        | string |  分页条数, 默认100; 最大1000 |
-| fromId       | long   |  从这个tradeId开始检索      |
+| Name         | Type    | Description         |
+| ------------ | ------- | ------------------- |
+| contractName | string  |  合约名称 如 E-BTC-USDT  |
+| limit        | integer |  分页条数, 默认100; 最大500 |
+| fromId       | long    |  从这个tradeId开始检索     |
 
 #### Headers
 
@@ -734,7 +660,7 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | bidUserId    | integer | 10024              | 买方用户ID                 |
 | askUserId    | integer | 10025              | 卖方用户ID                 |
 | price        | float   | 4.01               | 成交价格                   |
-| qty          | float   | 12                 | 交易数量                   |
+| qty          | integer | 12                 | 交易数量                   |
 | amount       | float   | 5.38               | 成交金额                   |
 | time         | number  | 1499865549590      | 交易时间戳                  |
 | fee          | number  | 0.001              | 交易手续费                  |
@@ -742,130 +668,6 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | contractName | string  | E-BTC-USDT         | 合约名称                   |
 | isMaker      | boolean | true               | 是否是maker               |
 | isBuyer      | boolean | true               | 是否买方                   |
-
-## 更改持仓模式
-
-<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_user_position_model`&#x20;
-
-#### Headers
-
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| X-CH-SIGN   | string  |  签名         |
-| X-CH-APIKEY | string  |  您的API-key  |
-| X-CH-TS     | integer |  时间戳        |
-
-**Request Body**
-
-| Name                                            | Type    | Description               |
-| ----------------------------------------------- | ------- | ------------------------- |
-| contractName<mark style="color:red;">\*</mark>  | string  | 合约名称 `E-BTC-USDT`         |
-| positionModel<mark style="color:red;">\*</mark> | integer | 持仓模式 （1.净持仓 2.双向持仓）传入1或者2 |
-
-{% tabs %}
-{% tab title="200 : OK 成功code为0，code小于0为错误，msg为错误原因" %}
-```java
-{ 
-    "code": "0", 
-    "msg": "成功", 
-    "data": null 
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## 更改保证金模式
-
-<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_user_margin_model`&#x20;
-
-#### Headers
-
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| X-CH-SIGN   | string  |  签名         |
-| X-CH-APIKEY | string  |  您的API-key  |
-| X-CH-TS     | integer |  时间戳        |
-
-**Request Body**
-
-| Name                                           | Type    | Description              |
-| ---------------------------------------------- | ------- | ------------------------ |
-| contractName<mark style="color:red;">\*</mark> | string  | 合约名称 `E-BTC-USDT`        |
-| marginModel<mark style="color:red;">\*</mark>  | integer | 持保证金模式 （1.全仓 2.逐仓）传入1或者2 |
-
-{% tabs %}
-{% tab title="200 : OK 成功code为0，code小于0为错误，msg为错误原因" %}
-```java
-{ 
-    "code": "0", 
-    "msg": "成功", 
-    "data": null 
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## 调整仓位保证金
-
-<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_position_margin`
-
-#### Headers
-
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| X-CH-SIGN   | string  |  签名         |
-| X-CH-APIKEY | string  |  您的API-key  |
-| X-CH-TS     | integer |  时间戳        |
-
-**Request Body**
-
-| Name                                         | Type    | Description |
-| -------------------------------------------- | ------- | ----------- |
-| positionId<mark style="color:red;">\*</mark> | integer | 仓位id        |
-| amount<mark style="color:red;">\*</mark>     | number  | 调整数值        |
-
-{% tabs %}
-{% tab title="200 : OK 成功code为0，code小于0为错误，msg为错误原因" %}
-```java
-{ 
-    "code": "0", 
-    "msg": "成功", 
-    "data": null 
-}
-```
-{% endtab %}
-{% endtabs %}
-
-## 更改杠杆倍数
-
-<mark style="color:green;">`POST`</mark> `https://futuresopenapi.xxx.xx/fapi/v1/edit_lever`&#x20;
-
-#### Headers
-
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| X-CH-SIGN   | string  |  签名         |
-| X-CH-APIKEY | string  |  您的API-key  |
-| X-CH-TS     | integer |  时间戳        |
-
-**Request Body**
-
-| Name                                           | Type    | Description       |
-| ---------------------------------------------- | ------- | ----------------- |
-| contractName<mark style="color:red;">\*</mark> | string  | 合约名称 `E-BTC-USDT` |
-| nowLevel<mark style="color:red;">\*</mark>     | integer | 需要修改的杠杆倍数 如50     |
-
-{% tabs %}
-{% tab title="200 : OK 成功code为0，code小于0为错误，msg为错误原因" %}
-```java
-{ 
-    "code": "0", 
-    "msg": "成功", 
-    "data": null 
-}
-```
-{% endtab %}
-{% endtabs %}
 
 ## 账户
 
@@ -915,13 +717,13 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
                             "contractId": 1,
                             "positionType": 2,
                             "side": "BUY",
-                            "volume": 69642.0,
+                            "volume": 69642,
                             "openPrice": 11840.2394,
                             "avgPrice": 11840.3095,
                             "closePrice": 12155.3005,
                             "leverageLevel": 24,
                             "holdAmount": 7014.2111,
-                            "closeVolume": 40502.0,
+                            "closeVolume": 40502,
                             "pendingCloseVolume": 0,
                             "realizedAmount": 8115.9125,
                             "historyRealizedAmount": 1865.3985,
@@ -996,14 +798,14 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | uid                   | integer | 10023 | 用户ID                     |
 | positionType          | integer | 1     | 持仓类型(1 全仓，2 仓逐)          |
 | side                  | string  | SELL  | 持仓方向 BUY 多仓, SELL 空仓     |
-| volume                | float   | 1.05  | 持仓数量                     |
+| volume                | integer | 1.05  | 持仓数量                     |
 | openPrice             | float   | 1.05  | 开仓价格                     |
 | avgPrice              | float   | 1.05  | 持仓均价                     |
 | closePrice            | float   | 1.05  | 平仓均价                     |
 | leverageLevel         | float   | 1.05  | 杠杆倍数                     |
 | holdAmount            | float   | 1.05  | 持仓保证金                    |
-| closeVolume           | float   | 1.05  | 已平仓数量                    |
-| pendingCloseVolume    | float   | 1.05  | 已挂出平仓单的数量                |
+| closeVolume           | integer | 1     | 已平仓数量                    |
+| pendingCloseVolume    | integer | 1     | 已挂出平仓单的数量                |
 | realizedAmount        | float   | 1.05  | 已实现盈亏                    |
 | historyRealizedAmount | float   | 1.05  | 历史累计已实现盈亏                |
 | tradeFee              | float   | 1.05  | 交易手续费                    |

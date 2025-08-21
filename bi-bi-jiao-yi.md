@@ -2,11 +2,11 @@
 
 ## 公共
 
-#### 安全类型: None
+### 安全类型: None
 
-### 测试连接
+## 测试连接
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/ping`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/ping`
 
 测试REST API的连通性
 
@@ -18,9 +18,9 @@
 {% endtab %}
 {% endtabs %}
 
-### 服务器时间
+## 服务器时间
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/time`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/time`
 
 获取服务器时间
 
@@ -35,9 +35,9 @@
 {% endtab %}
 {% endtabs %}
 
-### 币对列表&#x20;
+## 币对列表&#x20;
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/symbols`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/symbols`
 
 市场支持的币对集合esponse:
 
@@ -54,11 +54,9 @@
             "pricePrecision": 6,
             "baseAsset": "SCCA",
             "quoteAsset": "DAI",
-            "limitAmountMin": "100",
-            "limitPriceMin": "123.45",
-            "limitVolumeMin": "10",
-            "feeRateMaker": "0.002",
-            "feeRateTaker": "0.002"
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 8,
@@ -66,11 +64,9 @@
             "pricePrecision": 2,
             "baseAsset": "BTC",
             "quoteAsset": "USDT",
-            "limitAmountMin": "100",
-            "limitPriceMin": "123.45",
-            "limitVolumeMin": "10",
-            "feeRateMaker": "0.002",
-            "feeRateTaker": "0.002"
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 3,
@@ -78,11 +74,9 @@
             "pricePrecision": 2,
             "baseAsset": "BCH",
             "quoteAsset": "USDT",
-            "limitAmountMin": "100",
-            "limitPriceMin": "123.45",
-            "limitVolumeMin": "10",
-            "feeRateMaker": "0.002",
-            "feeRateTaker": "0.002"
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -90,11 +84,9 @@
             "pricePrecision": 2,
             "baseAsset": "ETC",
             "quoteAsset": "USDT",
-            "limitAmountMin": "100",
-            "limitPriceMin": "123.45",
-            "limitVolumeMin": "10",
-            "feeRateMaker": "0.002",
-            "feeRateTaker": "0.002"
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         },
         {
             "quantityPrecision": 2,
@@ -102,11 +94,9 @@
             "pricePrecision": 6,
             "baseAsset": "LTC",
             "quoteAsset": "BTC",
-            "limitAmountMin": "100",
-            "limitPriceMin": "123.45",
-            "limitVolumeMin": "10",
-            "feeRateMaker": "0.002",
-            "feeRateTaker": "0.002"
+            "limitAmountMin":"100",
+            "limitPriceMin":"123.45",
+            "limitVolumeMin":"10"
         }
     ]
 }
@@ -131,26 +121,23 @@
 | baseAssetName     | String  | BTC       | 基准货币显示名称       |
 | quoteAssetName    | String  | USDT      | 计价货币显示名称       |
 | SymbolName        | String  | BTC/USDT  | 币对显示名称         |
-| feeRateMaker      | String  | 0.002     | maker手续费率      |
-| feeRateMaker      | String  | 0.002     | taker手续费率      |
-|                   |         |           |                |
 
 ## 行情
 
-#### 安全类型: None
+### 安全类型: None
 
-### 订单薄
+## 订单薄
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/depth`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/depth`
 
 市场订单薄深度信息
 
 #### Query Parameters
 
-| Name                                     | Type    | Description        |
-| ---------------------------------------- | ------- | ------------------ |
-| limit                                    | integer | 默认100; 最大100       |
-| symbol<mark style="color:red;">\*</mark> | String  | 币对名称E.g.`BTC/USDT` |
+| Name                                     | Type    | Description       |
+| ---------------------------------------- | ------- | ----------------- |
+| limit                                    | integer | 默认100; 最大100      |
+| symbol<mark style="color:red;">\*</mark> | String  | 币对名称 E.g. BTCUSDT |
 
 {% tabs %}
 {% tab title="200: OK  成功获取深度信息" %}
@@ -196,23 +183,20 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 | --- | ----- | ------- | --------- |
 | ' ' | float | `2.3`   | 当前价格对应的数量 |
 
-### &#x20;行情ticker
+## &#x20;行情ticker
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/ticker`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/ticker`
 
 24小时价格变化数据
 
 #### Query Parameters
 
-ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不提供, 所有symbol的ticker数据都会返回.
-
-| Name    | Type   | Description                                                                       |
-| ------- | ------ | --------------------------------------------------------------------------------- |
-| symbol  | String | <p>币对名称E.g.<code>BTC/USDT</code><br><code>(不传此参数时, api占用权重极大, 返回结构也不同)</code></p> |
-| symbols | String | 币对名称，多个使用英文逗号分隔 btcusdt,ethusdt                                                   |
+| Name                                     | Type   | Description                                                    |
+| ---------------------------------------- | ------ | -------------------------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Responses200</p> |
 
 {% tabs %}
-{% tab title="200: OK  传入symbol成功获取ticker信息" %}
+{% tab title="200: OK  成功获取ticker信息" %}
 ```javascript
 {
     "high": "9279.0301",
@@ -220,96 +204,35 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
     "last": "9200",
     "low": "9279.0301",
     "rose": "0",
-    "time": 1595563624731,
-    "symbol": "btcusdt",
-    "amount": "3213",
-    "askPrice": "123",
-    "askVolume": "213213"
-    "bidPrice": "12323",
-    "bidVolume": "213213"
+    "time": 1595563624731
 }
 ```
 {% endtab %}
 {% endtabs %}
 
-
-
-{% tabs %}
-{% tab title="200: OK  不传symbol成功获取ticker信息" %}
-```javascript
-[
-    {
-        "high": "9279.0301",
-        "vol": "1302",
-        "last": "9200",
-        "low": "9279.0301",
-        "rose": "0",
-        "time": 1595563624731
-        "symbol": "btcusdt",
-        "amount": "3213",
-        "askPrice": "123",
-        "askVolume": "213213"
-        "bidPrice": "12323",
-        "bidVolume": "213213"
-    },{
-        "high": "9279.0301",
-        "vol": "1302",
-        "last": "9200",
-        "low": "9279.0301",
-        "rose": "0",
-        "time": 1595563624731,
-        "symbol": "ethusdt",
-        "amount": "3213",
-        "askPrice": "123",
-        "askVolume": "213213"
-        "bidPrice": "12323",
-        "bidVolume": "213213"
-    }
-]
-```
-{% endtab %}
-{% endtabs %}
-
-\
 **权重(IP/UID): 5**
-
-**symbol 未提供: 权重 = 80**
-
-**symbols 未提供: 权重 = 80**
-
-**symbols 1-20: 权重 = 5**
-
-**symbols 21-100: 权重 = 40**
-
-**symbols ≥ 101: 权重 = 80**
 
 #### Response:
 
-| time      | long   | `1595563624731` | 时间戳         |   |
-| --------- | ------ | --------------- | ----------- | - |
-| high      | float  | `9900`          | 最高价         |   |
-| low       | float  | `8800.34`       | 最低价         |   |
-| open      | float  | `8700`          | 开盘价         |   |
-| last      | float  | `8900`          | 最新价         |   |
-| vol       | float  | `4999`          | 交易量         |   |
-| rose      | float  | 0               | 涨幅          |   |
-| symbol    | String | btcusdt         | 币对          |   |
-| amount    | String | 1233            | 交易额，计价货币成交量 |   |
-| askPrice  | String | 23321           | 卖一价         |   |
-| askVolume | String | 3321            | 卖一数量        |   |
-| bidPrice  | String | 21              | 买一价         |   |
-| bidVolume | String | 12              | 买一数量        |   |
+| time | long  | `1595563624731` | 时间戳 |   |
+| ---- | ----- | --------------- | --- | - |
+| high | float | `9900`          | 最高价 |   |
+| low  | float | `8800.34`       | 最低价 |   |
+| open | float | `8700`          | 开盘价 |   |
+| last | float | `8900`          | 最新价 |   |
+| vol  | float | `4999`          | 交易量 |   |
+| rose | float | 0               | 涨幅  |   |
 
-### 最近成交
+## 最近成交
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/trades`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/trades`
 
 #### Query Parameters
 
-| Name                                     | Type   | Description        |
-| ---------------------------------------- | ------ | ------------------ |
-| symbol<mark style="color:red;">\*</mark> | String | 币对名称E.g.`BTC/USDT` |
-| limit                                    | String | `默认100:最大1000`     |
+| Name                                     | Type   | Description                                 |
+| ---------------------------------------- | ------ | ------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p> |
+| limit                                    | String | `默认100:最大1000`                              |
 
 {% tabs %}
 {% tab title="200: OK 成功" %}
@@ -338,15 +261,15 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 | qty   | float  | `5`             | 数量（张数）           |   |
 | side  | string | `BUY/SELL`      | 主动单方向            |   |
 
-### K线/蜡烛图数据
+## K线/蜡烛图数据
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/klines`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/klines`
 
 #### Query Parameters
 
 | Name                                       | Type   | Description                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------ | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| symbol<mark style="color:red;">\*</mark>   |        | 币对名称E.g.`BTC/USDT`                                                                                                                                                                                                                                                                                                              |
+| symbol<mark style="color:red;">\*</mark>   |        | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>                                                                                                                                                                                                                                                                                     |
 | interval<mark style="color:red;">\*</mark> | String | <p>k线图区间, 可识别发送的值为：</p><p><code>1min</code></p><p>,</p><p><code>5min</code></p><p>,</p><p><code>15min</code></p><p>,</p><p><code>30min</code></p><p>,</p><p><code>60min</code></p><p>,</p><p><code>1day</code></p><p>,</p><p><code>1week</code></p><p>,</p><p><code>1month</code></p><p>（min=分钟，h=小时,day=天，week=星期，month=月）</p> |
 | startTime                                  | long   | 起始时间点                                                                                                                                                                                                                                                                                                                           |
 | endTime                                    | long   | 截止时间点                                                                                                                                                                                                                                                                                                                           |
@@ -359,25 +282,28 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
         "high": "6228.77",
         "vol": "111",
         "low": "6228.77",
-        "idx": 1594640340,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     },
     {
         "high": "6228.77",
         "vol": "222",
         "low": "6228.77",
-        "idx": 1587632160,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     },
     {
         "high": "6228.77",
         "vol": "333",
         "low": "6228.77",
-        "idx": 1587632100,
+        "idx": 1538728740000,
         "close": "6228.77",
-        "open": "6228.77"
+        "open": "6228.77",
+        "id":1538728740
     }
 ]
 ```
@@ -388,23 +314,24 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Response:
 
-| `idx` | long  | `1538728740000` | 开始时间戳，毫秒（ms）   |   |
-| ----- | ----- | --------------- | -------------- | - |
-| open  | float | `36.00000`      | 开盘价            |   |
-| close | float | `33.00000`      | 收盘价            |   |
-| high  | float | `36.00000`      | 最高价            |   |
-| low   | float | `30.00000`      | 最低价            |   |
-| vol   | float | `2456.111`      | <p>成交量<br></p> |   |
+| `idx` | long  | `1538728740000` | 开始时间戳，毫秒（ms）     |   |
+| ----- | ----- | --------------- | ---------------- | - |
+| open  | float | `36.00000`      | 开盘价              |   |
+| close | float | `33.00000`      | 收盘价              |   |
+| high  | float | `36.00000`      | 最高价              |   |
+| low   | float | `30.00000`      | 最低价              |   |
+| vol   | float | `2456.111`      | <p>成交量<br></p>   |   |
+| id    | long  | `1538728740`    | 开始时间戳，秒（seconds） |   |
 
 ## 交易
 
-#### 安全类型: TRADE
+### 安全类型: TRADE
 
 交易下方的接口都需要签名和API-Key验证
 
-### &#x20;创建新订单
+## &#x20;创建新订单
 
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v2/order`
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/order`
 
 #### Query Parameters
 
@@ -416,16 +343,16 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Request Body
 
-| Name                                     | Type    | Description                                                         |
-| ---------------------------------------- | ------- | ------------------------------------------------------------------- |
-| symbol                                   | String  | 币对名称E.g.`BTC/USDT`                                                  |
-| volume<mark style="color:red;">\*</mark> | number  | 订单数量                                                                |
-| side<mark style="color:red;">\*</mark>   | String  | <p>订单方向,</p><p><code>BUY/SELL</code></p>                            |
-| type<mark style="color:red;">\*</mark>   | String  | <p>订单类型,</p><p><code>LIMIT/MARKET/FOK/POST_ONLY/IOC/STOP</code></p> |
-| price                                    | number  | <p>订单价格, 对于</p><p><code>LIMIT</code></p><p>订单必须发送</p>               |
-| newClientOrderId                         | String  | 客户端订单标识                                                             |
-| recvwindow                               | integer | 时间窗口                                                                |
-| triggerPrice                             | number  | <p>止盈止损 触发价格<br>(当类型为STOP时,price和triggerPrice必填)</p>                |
+| Name                                     | Type    | Description                                                    |
+| ---------------------------------------- | ------- | -------------------------------------------------------------- |
+| symbol                                   | String  | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>                    |
+| symbolName                               | String  | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>          |
+| volume<mark style="color:red;">\*</mark> | number  | 订单数量                                                           |
+| side<mark style="color:red;">\*</mark>   | String  | <p>订单方向,</p><p><code>BUY/SELL</code></p>                       |
+| type<mark style="color:red;">\*</mark>   | String  | <p>订单类型,</p><p><code>LIMIT/MARKET/FOK/POST_ONLY/IOC</code></p> |
+| price                                    | number  | <p>订单价格, 对于</p><p><code>LIMIT</code></p><p>订单必须发送</p>          |
+| newClientOrderId                         | String  | 客户端订单标识                                                        |
+| recvwindow                               | integer | 时间窗口                                                           |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -437,11 +364,10 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
     'price': '0.005452', 
     'origQty': '110', 
     'executedQty': '0', 
-    'status': '0',
+    'status': 'NEW',
     'type': 'LIMIT', 
     'side': 'SELL',
 <strong>    "orderIdString": "1642655717519015937" //字符串类型的订单号,推荐使用这个
-</strong><strong>
 </strong>
 }
 </code></pre>
@@ -452,22 +378,22 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Response:
 
-| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                                             |   |
-| ------------- | ------- | ---------------------- | ---------------------------------------------------------------------- | - |
-| orderIdString | string  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                       |   |
-| clientOrderId | string  | `213443`               | 订单ID（自己发送的）                                                            |   |
-| symbol        | string  | `BTCUSDT`              | 币对名称                                                                   |   |
-| transactTime  | integer | `1273774892913`        | 订单创建时间                                                                 |   |
-| price         | float   | `4765.29`              | 订单价格                                                                   |   |
-| origQty       | float   | `1.01`                 | 订单数量                                                                   |   |
-| executedQty   | float   | `1.01`                 | 已经成交订单数量                                                               |   |
-| type          | string  | `LIMIT`                | <p>订单类型<code>LIMIT</code>(限价)<code>MARKET</code>（市价）<br>STOP(止盈止损)</p> |   |
-| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                              |   |
-| status        | string  | `0`                    | 0 = 新订单                                                                |   |
+| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                |   |
+| ------------- | ------- | ---------------------- | ----------------------------------------- | - |
+| orderIdString | string  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                          |   |
+| clientOrderId | string  | `213443`               | 订单ID（自己发送的）                               |   |
+| symbol        | string  | `BTCUSDT`              | 币对名称                                      |   |
+| transactTime  | integer | `1273774892913`        | 订单创建时间                                    |   |
+| price         | float   | `4765.29`              | 订单价格                                      |   |
+| origQty       | float   | `1.01`                 | 订单数量                                      |   |
+| executedQty   | float   | `1.01`                 | 已经成交订单数量                                  |   |
+| type          | string  | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）               |   |
+| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空） |   |
+| status        | string  | `0`                    | 0 = 新订单                                   |   |
 
-### &#x20;创建测试订单
+## &#x20;创建测试订单
 
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v2/order/test`
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/order/test`
 
 创建和验证新订单, 但不会送入撮合引擎
 
@@ -484,7 +410,7 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 | Name                                     | Type    | Description                                           |
 | ---------------------------------------- | ------- | ----------------------------------------------------- |
 | recvwindow                               | integer | 时间窗口                                                  |
-| symbol<mark style="color:red;">\*</mark> | String  | <p>币对名称 E.g.</p><p><code>BTCUSDT或者BTC/USDT</code></p> |
+| symbol<mark style="color:red;">\*</mark> | String  | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>           |
 | volume<mark style="color:red;">\*</mark> | number  | 订单数量                                                  |
 | side<mark style="color:red;">\*</mark>   | String  | <p>订单方向,</p><p><code>BUY/SELL</code></p>              |
 | type<mark style="color:red;">\*</mark>   | String  | <p>订单类型,</p><p><code>LIMIT/MARKET</code></p>          |
@@ -507,9 +433,9 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 ***
 
-### &#x20;批量下单
+## &#x20;批量下单
 
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v2/batchOrders`
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/batchOrders`
 
 #### Headers
 
@@ -521,10 +447,11 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Request Body
 
-| Name                                     | Type   | Description        |
-| ---------------------------------------- | ------ | ------------------ |
-| symbol<mark style="color:red;">\*</mark> | String | 币对名称E.g.`BTC/USDT` |
-| orders                                   | number | 批量订单信息 最多10条       |
+| Name                                     | Type   | Description                                          |
+| ---------------------------------------- | ------ | ---------------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>          |
+| symbolName                               | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例:BTC/USDT</p> |
+| orders                                   | number | 批量订单信息 最多10条                                         |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -562,17 +489,18 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 | --------- | ------- | --------- | -------------- | - |
 | ids       | integer | 2100      | 订单号集合          |   |
 
-### &#x20;订单查询
+## &#x20;订单查询
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/order`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/order`
 
 #### Query Parameters
 
-| Name                                      | Type   | Description        |
-| ----------------------------------------- | ------ | ------------------ |
-| orderId<mark style="color:red;">\*</mark> | String | 订单id               |
-| newClientOrderId                          | String | 客户端订单标识            |
-| symbol<mark style="color:red;">\*</mark>  | String | 币对名称E.g.`BTC/USDT` |
+| Name                                      | Type   | Description                                              |
+| ----------------------------------------- | ------ | -------------------------------------------------------- |
+| orderId<mark style="color:red;">\*</mark> | String | 订单id                                                     |
+| newClientOrderId                          | String | 客户端订单标识                                                  |
+| symbol<mark style="color:red;">\*</mark>  | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Header</p> |
+| symbolName                                | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例:BTC/USDT</p>     |
 
 #### Headers
 
@@ -619,9 +547,9 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 | status        | string  | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 | transactTime  | string  | 1574327555669        | 订单创建时间                                                                                                     |   |
 
-### 撤销订单
+## 撤销订单
 
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v2/cancel`
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/cancel`
 
 #### Headers
 
@@ -633,11 +561,12 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Request Body
 
-| Name                                      | Type   | Description                                           |
-| ----------------------------------------- | ------ | ----------------------------------------------------- |
-| orderId<mark style="color:red;">\*</mark> | String | 订单id                                                  |
-| newClientOrderId                          | String | 客户端订单标识                                               |
-| symbol<mark style="color:red;">\*</mark>  | String | <p>币对名称 E.g.</p><p><code>BTCUSDT或者BTC/USDT</code></p> |
+| Name                                      | Type   | Description                                                    |
+| ----------------------------------------- | ------ | -------------------------------------------------------------- |
+| orderId<mark style="color:red;">\*</mark> | String | 订单id                                                           |
+| newClientOrderId                          | String | 客户端订单标识                                                        |
+| symbol<mark style="color:red;">\*</mark>  | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Responses200</p> |
+| symbolName                                | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>          |
 
 {% tabs %}
 {% tab title="200: OK  撤销订单成功" %}
@@ -663,9 +592,9 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 | symbol        | string | `BTCUSDT`            | 币对名称                                                                                                       |   |
 | status        | string | `NEW`                | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
 
-### 批量撤销订单
+## 批量撤销订单
 
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v2/batchCancel`
+<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/batchCancel`
 
 **一次批量最多10个订单**
 
@@ -679,10 +608,11 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Request Body
 
-| Name                                       | Type   | Description                                           |
-| ------------------------------------------ | ------ | ----------------------------------------------------- |
-| orderIds<mark style="color:red;">\*</mark> | String | <p>要取消的订单id集合</p><p><code>[123,456]</code></p><p></p> |
-| symbol<mark style="color:red;">\*</mark>   | String | 币对名称E.g.`BTC/USDT`                                    |
+| Name                                       | Type   | Description                                                          |
+| ------------------------------------------ | ------ | -------------------------------------------------------------------- |
+| orderIds<mark style="color:red;">\*</mark> | String | <p>要取消的订单id集合</p><p><code>[123,456]</code></p><p>Responses200GET</p> |
+| symbol<mark style="color:red;">\*</mark>   | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p><p>Responses200</p>       |
+| symbolName                                 | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p>                |
 
 {% tabs %}
 {% tab title="200: OK " %}
@@ -707,16 +637,17 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 ***
 
-### &#x20;当前订单
+## &#x20;当前订单
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/openOrders`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/openOrders`
 
 #### Query Parameters
 
-| Name   | Type   | Description                                                              |
-| ------ | ------ | ------------------------------------------------------------------------ |
-| symbol | String | <p>币对名称E.g.<code>BTC/USDT</code><br><code>(不传此参数时, api占用权重极大)</code></p> |
-| limit  | String | 默认100; 最大1000                                                            |
+| Name                                     | Type   | Description                                           |
+| ---------------------------------------- | ------ | ----------------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p>           |
+| limit                                    | String | 默认100; 最大1000                                         |
+| symbolName                               | String | <p>币种显示名称, symbol和symbolName二选一填写<br>示例: BTC/USDT</p> |
 
 #### Headers
 
@@ -740,9 +671,7 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
         'status': 'NEW', 
         'type': 'LIMIT', 
         'side': 'BUY', 
-        'time': '1574329076202',
-        'stopPrice': 123321,
-        'isWorking':true        
+        'time': '1574329076202'
         },...
 ]
 ```
@@ -753,33 +682,31 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 #### Response:
 
-| orderId       | long    | `150695552109032492`   | 订单ID（系统生成）                                                                                                 |   |
-| ------------- | ------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | - |
-| orderIdString | String  | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                                                           |   |
-| clientorderId | string  | `213443`               | 订单ID（自己发送的）                                                                                                |   |
-| symbol        | string  | `BTCUSDT`              | 币对名称                                                                                                       |   |
-| price         | float   | `4765.29`              | 订单价格                                                                                                       |   |
-| origQty       | float   | `1.01`                 | 订单数量                                                                                                       |   |
-| executedQty   | float   | `1.01`                 | 已经成交订单数量                                                                                                   |   |
-| avgPrice      | float   | `4754.24`              | 订单已经成交的平均价格                                                                                                |   |
-| type          | string  | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
-| side          | string  | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
-| status        | string  | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
-| time          | string  | 1574327555669          | 创建时间                                                                                                       |   |
-| stopPrice     | float   | 21323.32               | 止盈止损触发价                                                                                                    |   |
-| isWorking     | boolean | true                   | 订单是否出现在orderbook中                                                                                          |   |
+| orderId       | long   | `150695552109032492`   | 订单ID（系统生成）                                                                                                 |   |
+| ------------- | ------ | ---------------------- | ---------------------------------------------------------------------------------------------------------- | - |
+| orderIdString | String | "`150695552109032492"` | 字符串类型的订单ID(推荐使用)                                                                                           |   |
+| clientorderId | string | `213443`               | 订单ID（自己发送的）                                                                                                |   |
+| symbol        | string | `BTCUSDT`              | 币对名称                                                                                                       |   |
+| price         | float  | `4765.29`              | 订单价格                                                                                                       |   |
+| origQty       | float  | `1.01`                 | 订单数量                                                                                                       |   |
+| executedQty   | float  | `1.01`                 | 已经成交订单数量                                                                                                   |   |
+| avgPrice      | float  | `4754.24`              | 订单已经成交的平均价格                                                                                                |   |
+| type          | string | `LIMIT`                | 订单类型`LIMIT`(限价)`MARKET`（市价）                                                                                |   |
+| side          | string | `BUY`                  | 订单方向。可能出现的值只能为：`BUY`（买入做多） 和 `SELL`（卖出做空）                                                                  |   |
+| status        | string | `NEW`                  | 订单状态。可能出现的值为：`NEW`(新订单，无成交)、`PARTIALLY_FILLED`（部分成交）、`FILLED`（全部成交）、`CANCELED`（已取消）和`REJECTED`（订单被拒绝）.POST |   |
+| time          | string | 1574327555669          | 创建时间                                                                                                       |   |
 
-### &#x20;交易记录
+## &#x20;交易记录
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v2/myTrades`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/myTrades`
 
 #### Query Parameters
 
-| Name                                     | Type   | Description        |
-| ---------------------------------------- | ------ | ------------------ |
-| symbol<mark style="color:red;">\*</mark> | String | 币对名称E.g.`BTC/USDT` |
-| limit                                    | String | 默认100; 最大1000      |
-| fromId                                   | String | 从这个tradeId开始检索     |
+| Name                                     | Type   | Description                                 |
+| ---------------------------------------- | ------ | ------------------------------------------- |
+| symbol<mark style="color:red;">\*</mark> | String | <p>币对名称 E.g.</p><p><code>BTCUSDT</code></p> |
+| limit                                    | String | 默认100; 最大1000                               |
+| fromId                                   | String | 从这个tradeId开始检索                              |
 
 #### Headers
 
@@ -836,9 +763,9 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 
 ## 账户
 
-#### 安全类型: USER\_DATA
+### 安全类型: USER\_DATA
 
-### 账户信息
+## 账户信息
 
 <mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/sapi/v1/account`
 
@@ -858,119 +785,3 @@ ps: 参数 `symbol` 和 `symbols` 同时提供,则优先取symbol 如果都不�
 {% endtabs %}
 
 **权重(IP/UID): 1**
-
-
-
-### 划转&#x20;
-
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/asset/transfer`
-
-#### Headers
-
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| X-CH-SIGN   | String | 签名          |
-| X-CH-APIKEY | String | 您的API-key   |
-| X-CH-TS     | String | 时间戳         |
-
-#### Request Body
-
-| Name                                          | Type   | Description                                    |
-| --------------------------------------------- | ------ | ---------------------------------------------- |
-| coinSymbol<mark style="color:red;">\*</mark>  | String | 币种                                             |
-| amount<mark style="color:red;">\*</mark>      | float  | 数量                                             |
-| fromAccount<mark style="color:red;">\*</mark> | String | <p>转出账户<br>EXCHANGE 现货账户</p><p>FUTURE 合约账户</p> |
-| toAccount<mark style="color:red;">\*</mark>   | String | <p>转入账户<br>EXCHANGE 现货账户</p><p>FUTURE 合约账户</p> |
-
-{% tabs %}
-{% tab title="200: OK  划转成功" %}
-```javascript
-{
-    "code": "0",
-    "msg": "成功",
-    "data": {
-        "transferId": "1a9ec387-8b81-4789-a98e-bc6a606c8736"
-    }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-**权重(IP/UID): 5**
-
-#### Response:
-
-| transferId | String | <pre><code>1a9ec387-8b81-4789-a98e-bc6a606c8736
-</code></pre> | 划转id |   |
-| ---------- | ------ | ------------------------------------------------------------- | ---- | - |
-
-
-
-### 划转记录查询
-
-<mark style="color:green;">`POST`</mark> `https://openapi.xxx.xx/sapi/v1/asset/transferQuery`
-
-#### Headers
-
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| X-CH-SIGN   | String | 签名          |
-| X-CH-APIKEY | String | 您的API-key   |
-| X-CH-TS     | String | 时间戳         |
-
-#### Request Body
-
-ps:\
-transferId不传时，fromAccount/toAccount必填\
-startTime和endTime不传时，默认返回最近7天数据\
-仅支持查询最近6个月数据
-
-| Name        | Type    | Description                                            |
-| ----------- | ------- | ------------------------------------------------------ |
-| transferId  | String  | 划转id                                                   |
-| coinSymbol  | String  | 币种                                                     |
-| fromAccount | String  | <p>转出账户 </p><p>EXCHANGE 现货账户</p><p>FUTURE 合约账户<br></p> |
-| toAccount   | String  | <p>转入账户 <br>EXCHANGE 现货账户</p><p>FUTURE 合约账户</p>        |
-| startTime   | long    | 开始时间, 13位时间戳                                           |
-| endTime     | long    | 结束时间, 13位时间戳                                           |
-| page        | Integer | page不传默认为1                                             |
-| limit       | Integer | limit不传默认为20，最大为100                                    |
-
-{% tabs %}
-{% tab title="200: OK  划转成功" %}
-```javascript
-{
-    "code": "0",
-    "msg": "成功",
-    "data": {
-        "list": [
-            {
-                "transferId": "1a9ec387-8b81-4789-a98e-bc6a606c8736",
-                "fromAccount": "EXCHANGE",
-                "toAccount": "FUTURE",
-                "coinSymbol": "USDT",
-                "createTime": 1742369830000,
-                "amount": "1",
-                "status": "SUCCESS"
-            }
-        ]
-    }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-**权重(IP/UID): 5**
-
-#### Response:
-
-| transferId  | String | <pre><code>1a9ec387-8b81-4789-a98e-bc6a606c8736
-</code></pre> | 划转id                                                      |   |
-| ----------- | ------ | ------------------------------------------------------------- | --------------------------------------------------------- | - |
-| fromAccount | String | EXCHANGE                                                      | 转出账户                                                      |   |
-| toAccount   | String | FUTURE                                                        | 转入账户                                                      |   |
-| coinSymbol  | String | USDT                                                          | 币种                                                        |   |
-| createTime  | long   | 1742300000000                                                 | 创建时间戳                                                     |   |
-| amount      | String | 1                                                             | 数量                                                        |   |
-| status      | String | SUCCESS                                                       | <p>状态<br>SUCCESS = 成功<br>PENDING = 划转中<br>FAILED = 失败</p> |   |
-
