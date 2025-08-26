@@ -343,25 +343,27 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Headers
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| X-CH-TS     | string | 时间戳         |
-| X-CH-APIKEY | string | 您的API-KEY   |
-| X-CH-SIGN   | string | 签名          |
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- |
+| X-CH-TS         | string | 时间戳         |
+| X-CH-APIKEY     | string | 您的API-KEY   |
+| X-CH-SIGN       | string | 签名          |
+| futures-version | string | 版本号：`101`   |
 
 #### Request Body
 
-| Name          | Type   | Description                                                                      |
-| ------------- | ------ | -------------------------------------------------------------------------------- |
-| volume        | number | 下单数量，type为 LIMIT 时单位为：“张”，type为 MARKET 时单位为：“价值”（U本位时 “价值” 是“U”，币本位时 “价值” 是 “币”） |
-| price         | number | 下单价格                                                                             |
-| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                              |
-| type          | string | 订单类型, `LIMIT/MARKET`                                                             |
-| side          | string | 买卖方向, `BUY/SELL`                                                                 |
-| open          | string | 开平仓方向, `OPEN/CLOSE`                                                              |
-| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                  |
-| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                             |
-| timeInForce   | string | 市价单不需要该参数，`IOC, FOK, POST_ONLY`                                                  |
+| Name          | Type   | Description                                                                                   |
+| ------------- | ------ | --------------------------------------------------------------------------------------------- |
+| volume        | number | 下单数量                                                                                          |
+| price         | number | 下单价格                                                                                          |
+| orderUnit     | number | <p>订单单位</p><p><code>1</code>（币），<code>2</code>（张），<code>3</code>（价值） 默认单位为：<code>2</code></p> |
+| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                                           |
+| type          | string | 订单类型, `LIMIT/MARKET`                                                                          |
+| side          | string | 买卖方向, `BUY/SELL`                                                                              |
+| open          | string | 开平仓方向, `OPEN/CLOSE`                                                                           |
+| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                               |
+| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                                          |
+| timeInForce   | string | 市价单不需要该参数，`IOC, FOK, POST_ONLY`                                                               |
 
 {% tabs %}
 {% tab title="200 " %}
@@ -385,26 +387,28 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Headers
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| X-CH-TS     | string | 时间戳         |
-| X-CH-APIKEY | string | 您的API-KEY   |
-| X-CH-SIGN   | string | 签名          |
+| Name            | Type   | Description |
+| --------------- | ------ | ----------- |
+| X-CH-TS         | string | 时间戳         |
+| X-CH-APIKEY     | string | 您的API-KEY   |
+| X-CH-SIGN       | string | 签名          |
+| futures-version | string | 版本号：`101`   |
 
 #### Request Body
 
-| Name          | Type   | Description                                                                      |
-| ------------- | ------ | -------------------------------------------------------------------------------- |
-| volume        | number |  下单数量type为 LIMIT 时单位为：“张”，type为 MARKET 时单位为：“价值”（U本位时 “价值” 是“U”，币本位时 “价值” 是 “币”） |
-| price         | number | 下单价格                                                                             |
-| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                              |
-| type          | string | 订单类型, `LIMIT/MARKET`                                                             |
-| side          | string | 买卖方向, `BUY/SELL`                                                                 |
-| open          | string | 开平仓方向, `OPEN/CLOSE`                                                              |
-| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                  |
-| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                             |
-| triggerType	  | string | 条件单类型，`3追涨/4杀跌`                                                                  |
-| triggerPrice  | string | 触发价                                                                              |
+| Name          | Type   | Description                                                                                   |
+| ------------- | ------ | --------------------------------------------------------------------------------------------- |
+| volume        | number |  下单数量                                                                                         |
+| price         | number | 下单价格                                                                                          |
+| orderUnit     | number | <p>订单单位</p><p><code>1</code>（币），<code>2</code>（张），<code>3</code>（价值） 默认单位为：<code>2</code></p> |
+| contractName  | string | 合约名称 如 `E-BTC-USDT`                                                                           |
+| type          | string | 订单类型, `LIMIT/MARKET`                                                                          |
+| side          | string | 买卖方向, `BUY/SELL`                                                                              |
+| open          | string | 开平仓方向, `OPEN/CLOSE`                                                                           |
+| positionType  | number | 持仓类型, `1全仓/2逐仓`                                                                               |
+| clientOrderId | string | 客户端下单标识, 长度小于32位的字符串                                                                          |
+| triggerType	  | string | 条件单类型，`3追涨/4杀跌`                                                                               |
+| triggerPrice  | string | 触发价                                                                                           |
 
 {% tabs %}
 {% tab title="200: OK " %}
