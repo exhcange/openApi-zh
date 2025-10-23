@@ -653,11 +653,13 @@ bids和asks所对应的信息代表了订单薄的所有价格以及价格对应
 
 #### Request Body
 
-| Name         | Type   | Description        |
-| ------------ | ------ | ------------------ |
-| contractName | string | 合约名称 `E-BTC-USDT`  |
-| limit        | string | 分页条数, 默认100; 最大500 |
-| fromId       | long   | 从这条记录开始检索          |
+| Name         | Type   | Description                                           |
+| ------------ | ------ | ----------------------------------------------------- |
+| contractName | string | <p>不传该参数，默认查询所有合约<br>合约名称 <code>E-BTC-USDT</code></p> |
+| limit        | string | 分页条数, 默认100; 最大500                                    |
+| fromId       | long   | 从这条记录开始检索                                             |
+| startTime    | date   | 2025-01-01                                            |
+| endTime      | date   | <p>2025-01-01<br>startTime和endTime必须同时提供，默认查询所有时间</p> |
 
 {% tabs %}
 {% tab title="200: OK " %}
