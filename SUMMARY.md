@@ -7,6 +7,7 @@
 * [合约交易](he-yue-jiao-yi.md)
 * [提现](ti-xian.md)
 * [WebSocket推送](websocket-tui-song.md)
+* [Coingecko对接](coingecko-dui-jie.md)
 * [错误码](cuo-wu-ma.md)
 * [SDK开发库](sdk-kai-fa-ku.md)
 * [常见问题](chang-jian-wen-ti.md)
