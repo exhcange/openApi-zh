@@ -2,7 +2,7 @@
 
 ### 币对行情
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/coinGecko/pub/v1/ticker`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/pub/coingecko/ticker`
 
 **请求参数**
 
@@ -56,7 +56,7 @@
 
 ### 盘口数据
 
-<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/coinGecko/pub/v1/orderbook`
+<mark style="color:blue;">`GET`</mark> `https://openapi.xxx.xx/pub/coingecko/orderbook`
 
 **请求参数**
 
